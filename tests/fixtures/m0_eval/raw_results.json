@@ -1,0 +1,1802 @@
+[
+  {
+    "pair_id": "D01",
+    "reference": "01_a.png",
+    "image": "02_a.png",
+    "score": 25,
+    "checks": [
+      {
+        "element": "发型",
+        "matched": false,
+        "expected": "黑色齐肩直发，有空气刘海",
+        "actual": "红棕色高马尾，无刘海，发根蓬松"
+      },
+      {
+        "element": "脸型",
+        "matched": false,
+        "expected": "椭圆形脸，下颌线清晰柔和",
+        "actual": "偏圆润的鹅蛋脸，下颌更短更饱满"
+      },
+      {
+        "element": "眉眼",
+        "matched": false,
+        "expected": "细长自然眉，内双杏眼，眼距适中",
+        "actual": "较粗弧形眉，单眼皮微垂，眼距略宽"
+      },
+      {
+        "element": "肤色",
+        "matched": false,
+        "expected": "冷调白皙肤色，面部与颈部色差小",
+        "actual": "暖调粉嫩肤色，面颊泛红明显，颈部略暗"
+      },
+      {
+        "element": "体型",
+        "matched": false,
+        "expected": "肩宽适中，锁骨平直，颈部修长",
+        "actual": "肩部略窄，锁骨较浅，颈部稍短"
+      }
+    ],
+    "diff": "五项要素均不一致：发型、脸型、眉眼、肤色、体型均有显著差异",
+    "model": "qwen3-vl-plus",
+    "judge_version": "m0-judge-v1",
+    "missing_elements": [],
+    "usage": {
+      "prompt_tokens": 5432,
+      "completion_tokens": 490,
+      "total_tokens": 5922,
+      "request_id": "chatcmpl-3978c9b4-de12-936f-ba2f-5d8f31aecbdd",
+      "response_model": "qwen3-vl-plus"
+    },
+    "payload_bytes": 9111197,
+    "reference_size": [
+      1440,
+      2560
+    ],
+    "image_size": [
+      1440,
+      2560
+    ],
+    "swapped": false,
+    "thinking": true
+  },
+  {
+    "pair_id": "D02",
+    "reference": "01_a.png",
+    "image": "03_a.png",
+    "score": 45,
+    "checks": [
+      {
+        "element": "发型",
+        "matched": false,
+        "expected": "黑色齐肩直发，有空气刘海",
+        "actual": "深棕色高盘发髻，无刘海，发根蓬松"
+      },
+      {
+        "element": "脸型",
+        "matched": true,
+        "expected": "椭圆形脸，下颌线柔和",
+        "actual": "椭圆形脸，下颌线柔和"
+      },
+      {
+        "element": "眉眼",
+        "matched": false,
+        "expected": "细长自然眉，内双眼皮，眼距适中",
+        "actual": "较粗上挑眉，双眼皮明显，眼距略窄"
+      },
+      {
+        "element": "肤色",
+        "matched": true,
+        "expected": "自然偏白肤色，面部与颈部过渡均匀",
+        "actual": "自然偏白肤色，面部与颈部过渡均匀"
+      },
+      {
+        "element": "体型",
+        "matched": false,
+        "expected": "肩宽适中，颈部修长，身形匀称",
+        "actual": "肩宽略窄，锁骨更突出，颈部线条更纤细"
+      }
+    ],
+    "diff": "发型、眉眼、体型三项明显不同",
+    "model": "qwen3-vl-plus",
+    "judge_version": "m0-judge-v1",
+    "missing_elements": [],
+    "usage": {
+      "prompt_tokens": 5432,
+      "completion_tokens": 403,
+      "total_tokens": 5835,
+      "request_id": "chatcmpl-0c40a898-ddf8-94f5-9976-7b29248d2faf",
+      "response_model": "qwen3-vl-plus"
+    },
+    "payload_bytes": 8684605,
+    "reference_size": [
+      1440,
+      2560
+    ],
+    "image_size": [
+      1440,
+      2560
+    ],
+    "swapped": false,
+    "thinking": true
+  },
+  {
+    "pair_id": "D03",
+    "reference": "02_a.png",
+    "image": "03_a.png",
+    "score": 25,
+    "checks": [
+      {
+        "element": "发型",
+        "matched": false,
+        "expected": "红棕色高马尾，带额前碎发，发根蓬松",
+        "actual": "深棕色丸子头，无额前碎发，发髻紧致"
+      },
+      {
+        "element": "脸型",
+        "matched": false,
+        "expected": "圆润鹅蛋脸，下颌线柔和",
+        "actual": "偏长椭圆脸，下颌线更清晰锐利"
+      },
+      {
+        "element": "眉眼",
+        "matched": false,
+        "expected": "细弯眉，内双杏眼，眼距适中，眼神温和",
+        "actual": "平直略挑眉，双眼皮明显，眼距略窄，眼神锐利"
+      },
+      {
+        "element": "肤色",
+        "matched": false,
+        "expected": "暖调浅肤色，面部泛自然红晕",
+        "actual": "冷调中性肤色，面部无明显红晕"
+      },
+      {
+        "element": "体型",
+        "matched": false,
+        "expected": "肩宽适中，颈部修长，锁骨可见但柔和",
+        "actual": "肩线更宽直，颈部略短，锁骨突出明显"
+      }
+    ],
+    "diff": "五项要素均不一致：发型（马尾vs丸子头）、脸型（圆润vs修长）、眉眼（内双细弯眉vs双眼皮挑眉）、肤色（暖调红晕vs冷调中性）、体型（肩窄颈长vs肩宽颈短）",
+    "model": "qwen3-vl-plus",
+    "judge_version": "m0-judge-v1",
+    "missing_elements": [],
+    "usage": {
+      "prompt_tokens": 5432,
+      "completion_tokens": 535,
+      "total_tokens": 5967,
+      "request_id": "chatcmpl-2508bde4-bd90-9ab3-b793-61d8afa4a542",
+      "response_model": "qwen3-vl-plus"
+    },
+    "payload_bytes": 8483553,
+    "reference_size": [
+      1440,
+      2560
+    ],
+    "image_size": [
+      1440,
+      2560
+    ],
+    "swapped": false,
+    "thinking": true
+  },
+  {
+    "pair_id": "D04",
+    "reference": "04_a.png",
+    "image": "05_a.png",
+    "score": 15,
+    "checks": [
+      {
+        "element": "发型",
+        "matched": false,
+        "expected": "黑色超短寸头，长度约3mm，顶部略蓬松",
+        "actual": "黑色中长背头，长度及耳上，向后梳理有明显发缝"
+      },
+      {
+        "element": "脸型",
+        "matched": false,
+        "expected": "方形脸，下颌角宽而明显，颧骨平直",
+        "actual": "椭圆形脸，下颌线柔和，轮廓偏修长"
+      },
+      {
+        "element": "眉眼",
+        "matched": false,
+        "expected": "粗平眉，眼型细长，内眼角略下垂，眼距适中",
+        "actual": "细挑眉，眼型圆润上扬，内眼角上提"
+      },
+      {
+        "element": "肤色",
+        "matched": false,
+        "expected": "中等偏深黄褐色肤色，面部有轻微油光与毛孔纹理",
+        "actual": "白皙均匀肤色，无明显纹理，高光过度平滑"
+      },
+      {
+        "element": "体型",
+        "matched": false,
+        "expected": "肩宽较宽，颈部粗壮，锁骨不明显，肌肉感较强",
+        "actual": "肩窄，颈部修长，锁骨可见，身形偏瘦削"
+      }
+    ],
+    "diff": "五项要素均不一致：发型（寸头 vs 背头）、脸型（方脸 vs 椭圆脸）、眉眼（粗平眉细长眼 vs 细挑眉圆眼）、肤色（黄褐带纹理 vs 白皙光滑）、体型（宽肩粗颈 vs 窄肩修长）",
+    "model": "qwen3-vl-plus",
+    "judge_version": "m0-judge-v1",
+    "missing_elements": [],
+    "usage": {
+      "prompt_tokens": 5432,
+      "completion_tokens": 549,
+      "total_tokens": 5981,
+      "request_id": "chatcmpl-8b4ad7cb-3878-928e-90ab-d7a63a532184",
+      "response_model": "qwen3-vl-plus"
+    },
+    "payload_bytes": 8378457,
+    "reference_size": [
+      1440,
+      2560
+    ],
+    "image_size": [
+      1440,
+      2560
+    ],
+    "swapped": false,
+    "thinking": true
+  },
+  {
+    "pair_id": "D05",
+    "reference": "04_a.png",
+    "image": "06_a.png",
+    "score": 15,
+    "checks": [
+      {
+        "element": "发型",
+        "matched": false,
+        "expected": "黑色极短寸头，长度约1-2cm，顶部略蓬松，无刘海",
+        "actual": "黑色中长发，长度及肩，有斜刘海覆盖额头，发尾微内扣"
+      },
+      {
+        "element": "脸型",
+        "matched": false,
+        "expected": "方形脸，下颌角宽而明显，颧骨较平，面部轮廓硬朗",
+        "actual": "椭圆形脸，下颌线纤细收窄，颧骨柔和，面部轮廓偏修长"
+      },
+      {
+        "element": "眉眼",
+        "matched": false,
+        "expected": "粗平眉，眉峰平缓，眼型为内双杏眼，眼距适中，瞳孔深棕",
+        "actual": "细挑眉，眉尾上扬，眼型为狭长单眼皮，眼距略窄，瞳孔浅棕带灰调"
+      },
+      {
+        "element": "肤色",
+        "matched": false,
+        "expected": "暖调黄褐色肤色，面部有轻微油光与自然斑点，颈部肤色一致",
+        "actual": "冷调瓷白色肤色，无瑕疵，通体均匀白皙，颈部与面部无色差但整体过亮"
+      },
+      {
+        "element": "体型",
+        "matched": false,
+        "expected": "肩宽较宽，颈部粗壮，锁骨不明显",
+        "actual": "肩窄，颈部修长，锁骨清晰可见"
+      }
+    ],
+    "diff": "五项要素均不一致：发型（寸头 vs 中长刘海）、脸型（方脸 vs 椭圆）、眉眼（粗平眉内双 vs 细挑眉单皮）、肤色（暖黄褐 vs 冷瓷白）、体型（宽肩粗颈 vs 窄肩长颈）",
+    "model": "qwen3-vl-plus",
+    "judge_version": "m0-judge-v1",
+    "missing_elements": [],
+    "usage": {
+      "prompt_tokens": 5432,
+      "completion_tokens": 586,
+      "total_tokens": 6018,
+      "request_id": "chatcmpl-1f822c33-0bda-9f92-9373-c65464f66962",
+      "response_model": "qwen3-vl-plus"
+    },
+    "payload_bytes": 9104557,
+    "reference_size": [
+      1440,
+      2560
+    ],
+    "image_size": [
+      1440,
+      2560
+    ],
+    "swapped": false,
+    "thinking": true
+  },
+  {
+    "pair_id": "D06",
+    "reference": "05_a.png",
+    "image": "06_a.png",
+    "score": 35,
+    "checks": [
+      {
+        "element": "发型",
+        "matched": false,
+        "expected": "黑色中分背头，长度及耳，发根蓬松有纹理",
+        "actual": "黑色齐肩偏分碎发，刘海遮额，两侧较短呈层次感"
+      },
+      {
+        "element": "脸型",
+        "matched": false,
+        "expected": "长椭圆形脸，下颌线清晰略方",
+        "actual": "偏瘦长瓜子脸，下颌收窄明显，颧骨微突出"
+      },
+      {
+        "element": "眉眼",
+        "matched": false,
+        "expected": "细长平直眉，双眼皮，眼距适中，眼神温和",
+        "actual": "细长上挑眉，内双或单眼皮倾向，眼距略窄，眼神冷峻"
+      },
+      {
+        "element": "肤色",
+        "matched": true,
+        "expected": "自然白皙肤色，面部与颈部无色差",
+        "actual": "自然白皙肤色，面部与颈部无色差"
+      },
+      {
+        "element": "体型",
+        "matched": false,
+        "expected": "肩宽适中，胸肩比协调，身形挺拔",
+        "actual": "肩部较窄，锁骨明显，身形偏修长纤细"
+      }
+    ],
+    "diff": "发型、脸型、眉眼、体型四项明显不同，仅肤色一致",
+    "model": "qwen3-vl-plus",
+    "judge_version": "m0-judge-v1",
+    "missing_elements": [],
+    "usage": {
+      "prompt_tokens": 5432,
+      "completion_tokens": 486,
+      "total_tokens": 5918,
+      "request_id": "chatcmpl-486be2fd-76e4-9668-bdb5-cf59ae38dd5f",
+      "response_model": "qwen3-vl-plus"
+    },
+    "payload_bytes": 7521229,
+    "reference_size": [
+      1440,
+      2560
+    ],
+    "image_size": [
+      1440,
+      2560
+    ],
+    "swapped": false,
+    "thinking": true
+  },
+  {
+    "pair_id": "D07",
+    "reference": "07_a.png",
+    "image": "08_a.png",
+    "score": 15,
+    "checks": [
+      {
+        "element": "发型",
+        "matched": false,
+        "expected": "灰色齐肩卷发",
+        "actual": "红棕色及肩卷发"
+      },
+      {
+        "element": "脸型",
+        "matched": true,
+        "expected": "椭圆形脸，下颌线柔和",
+        "actual": "椭圆形脸，下颌线柔和"
+      },
+      {
+        "element": "眉眼",
+        "matched": false,
+        "expected": "自然平直眉，内双，眼距适中，无眼妆",
+        "actual": "上挑弧形眉，双眼皮明显，眼距略窄，有红色眼影与眼线"
+      },
+      {
+        "element": "肤色",
+        "matched": false,
+        "expected": "自然偏黄暖调肤色，面部有少量老年斑与细纹",
+        "actual": "偏粉白亮调肤色，面部光滑少斑，高光明显"
+      },
+      {
+        "element": "体型",
+        "matched": false,
+        "expected": "中等肩宽，颈部略显松弛，身形偏瘦",
+        "actual": "肩部较窄，颈部紧致，身形纤细"
+      }
+    ],
+    "diff": "发型、眉眼、肤色、体型四项明显不同，仅脸型轮廓相似",
+    "model": "qwen3-vl-plus",
+    "judge_version": "m0-judge-v1",
+    "missing_elements": [],
+    "usage": {
+      "prompt_tokens": 5432,
+      "completion_tokens": 437,
+      "total_tokens": 5869,
+      "request_id": "chatcmpl-67f3f214-1be1-9939-99c4-ba8788afc498",
+      "response_model": "qwen3-vl-plus"
+    },
+    "payload_bytes": 8843189,
+    "reference_size": [
+      1440,
+      2560
+    ],
+    "image_size": [
+      1440,
+      2560
+    ],
+    "swapped": false,
+    "thinking": true
+  },
+  {
+    "pair_id": "D08",
+    "reference": "07_a.png",
+    "image": "09_a.png",
+    "score": 15,
+    "checks": [
+      {
+        "element": "发型",
+        "matched": false,
+        "expected": "灰色齐肩卷发，发尾内扣",
+        "actual": "黑色齐耳直短发，中分，发尾外翻"
+      },
+      {
+        "element": "脸型",
+        "matched": false,
+        "expected": "椭圆形脸，下颌线柔和",
+        "actual": "偏方圆形脸，下颌角较明显"
+      },
+      {
+        "element": "眉眼",
+        "matched": false,
+        "expected": "细长弯眉，内双眼皮，眼距适中",
+        "actual": "粗平眉，单眼皮，眼距略窄"
+      },
+      {
+        "element": "肤色",
+        "matched": false,
+        "expected": "暖调浅黄肤色，面部有少量老年斑",
+        "actual": "冷调中性肤色，面部雀斑较多且分布更密"
+      },
+      {
+        "element": "体型",
+        "matched": false,
+        "expected": "肩宽适中，颈部略显松弛",
+        "actual": "肩部较窄，颈部紧致修长"
+      }
+    ],
+    "diff": "五项要素均不一致：发型、脸型、眉眼、肤色、体型全部存在显著差异",
+    "model": "qwen3-vl-plus",
+    "judge_version": "m0-judge-v1",
+    "missing_elements": [],
+    "usage": {
+      "prompt_tokens": 5432,
+      "completion_tokens": 452,
+      "total_tokens": 5884,
+      "request_id": "chatcmpl-d0fe215e-bbd3-9763-860f-fbb81b625d1b",
+      "response_model": "qwen3-vl-plus"
+    },
+    "payload_bytes": 9184637,
+    "reference_size": [
+      1440,
+      2560
+    ],
+    "image_size": [
+      1440,
+      2560
+    ],
+    "swapped": false,
+    "thinking": true
+  },
+  {
+    "pair_id": "D09",
+    "reference": "08_a.png",
+    "image": "09_a.png",
+    "score": 15,
+    "checks": [
+      {
+        "element": "发型",
+        "matched": false,
+        "expected": "红棕色及肩卷发，大波浪造型",
+        "actual": "黑色齐耳短直发，中分，贴头皮"
+      },
+      {
+        "element": "脸型",
+        "matched": false,
+        "expected": "圆润饱满的鹅蛋脸，下颌线条柔和",
+        "actual": "偏方的国字脸，下颌角明显，颧骨略宽"
+      },
+      {
+        "element": "眉眼",
+        "matched": false,
+        "expected": "细长上扬柳叶眉，内双眼皮，眼尾微翘，眼距适中",
+        "actual": "平直粗眉，单眼皮，眼型较短，眼距略窄"
+      },
+      {
+        "element": "肤色",
+        "matched": true,
+        "expected": "暖调自然肤色，面部有轻微红晕与细纹",
+        "actual": "偏冷调自然肤色，面部有雀斑与细纹"
+      },
+      {
+        "element": "体型",
+        "matched": false,
+        "expected": "肩宽适中，颈部修长，上身比例匀称",
+        "actual": "肩部较宽，颈部略短，锁骨线条更明显"
+      }
+    ],
+    "diff": "",
+    "model": "qwen3-vl-plus",
+    "judge_version": "m0-judge-v1",
+    "missing_elements": [],
+    "usage": {
+      "prompt_tokens": 5432,
+      "completion_tokens": 442,
+      "total_tokens": 5874,
+      "request_id": "chatcmpl-2638f881-79af-93f2-b188-c536213f228c",
+      "response_model": "qwen3-vl-plus"
+    },
+    "payload_bytes": 9732209,
+    "reference_size": [
+      1440,
+      2560
+    ],
+    "image_size": [
+      1440,
+      2560
+    ],
+    "swapped": false,
+    "thinking": true
+  },
+  {
+    "pair_id": "D10",
+    "reference": "10_a.png",
+    "image": "11_a.png",
+    "score": 65,
+    "checks": [
+      {
+        "element": "发型",
+        "matched": false,
+        "expected": "灰白色短发，长度及耳，略蓬松，前额发际线较高",
+        "actual": "灰白色中长发，向后梳理，长度过耳，发际线较低，两侧贴头皮"
+      },
+      {
+        "element": "脸型",
+        "matched": true,
+        "expected": "方下颌、宽颧骨、中等长度脸型",
+        "actual": "方下颌、宽颧骨、中等长度脸型"
+      },
+      {
+        "element": "眉眼",
+        "matched": false,
+        "expected": "粗短浓眉，眉尾下垂；内双，眼裂较窄，眼距适中",
+        "actual": "细长淡眉，眉形平直上扬；单眼皮明显，眼裂较宽，眼距略宽"
+      },
+      {
+        "element": "肤色",
+        "matched": false,
+        "expected": "偏红润黄调肤色，鼻翼与两颊有明显潮红血丝",
+        "actual": "偏冷白调肤色，整体均匀，无明显潮红"
+      },
+      {
+        "element": "体型",
+        "matched": true,
+        "expected": "中等肩宽，颈部较粗，锁骨不明显，有轻微双下巴轮廓",
+        "actual": "中等肩宽，颈部较细，锁骨隐约可见，下颌线更清晰"
+      }
+    ],
+    "diff": "发型、眉眼、肤色三项明显不同，脸型与体型基本一致",
+    "model": "qwen3-vl-plus",
+    "judge_version": "m0-judge-v1",
+    "missing_elements": [],
+    "usage": {
+      "prompt_tokens": 5432,
+      "completion_tokens": 478,
+      "total_tokens": 5910,
+      "request_id": "chatcmpl-589031cd-8f95-97d9-a99a-5c4932a44464",
+      "response_model": "qwen3-vl-plus"
+    },
+    "payload_bytes": 8868297,
+    "reference_size": [
+      1440,
+      2560
+    ],
+    "image_size": [
+      1440,
+      2560
+    ],
+    "swapped": false,
+    "thinking": true
+  },
+  {
+    "pair_id": "D11",
+    "reference": "10_a.png",
+    "image": "12_a.png",
+    "score": 15,
+    "checks": [
+      {
+        "element": "发型",
+        "matched": false,
+        "expected": "灰色短发，长度及耳，略蓬松，前额发际线较高",
+        "actual": "灰黑相间中长发，向后梳理，顶部蓬松，发际线较低"
+      },
+      {
+        "element": "脸型",
+        "matched": false,
+        "expected": "长方形脸，下颌角明显，颧骨中等，面部较瘦削",
+        "actual": "圆润宽脸，双颊饱满，下颌线圆钝，明显偏胖"
+      },
+      {
+        "element": "眉眼",
+        "matched": false,
+        "expected": "粗短平眉，内眼角下垂，眼裂较窄，眼距适中",
+        "actual": "浓黑上扬拱形眉，眼裂宽大，笑时眯眼明显，眼距略宽"
+      },
+      {
+        "element": "肤色",
+        "matched": false,
+        "expected": "黄褐色偏暗，面部有红斑与色素沉着，颈部肤色相近",
+        "actual": "偏粉红亮肤色，双颊泛红明显，颈部肤色略浅于面部"
+      },
+      {
+        "element": "体型",
+        "matched": false,
+        "expected": "肩宽适中，颈部修长，锁骨可见，身形偏瘦",
+        "actual": "肩宽显著更宽，颈部粗短，无明显锁骨，体型壮硕"
+      }
+    ],
+    "diff": "",
+    "model": "qwen3-vl-plus",
+    "judge_version": "m0-judge-v1",
+    "missing_elements": [],
+    "usage": {
+      "prompt_tokens": 5432,
+      "completion_tokens": 515,
+      "total_tokens": 5947,
+      "request_id": "chatcmpl-790bf8f3-1434-9879-b246-dae5944061a2",
+      "response_model": "qwen3-vl-plus"
+    },
+    "payload_bytes": 9085013,
+    "reference_size": [
+      1440,
+      2560
+    ],
+    "image_size": [
+      1440,
+      2560
+    ],
+    "swapped": false,
+    "thinking": true
+  },
+  {
+    "pair_id": "D12",
+    "reference": "11_a.png",
+    "image": "12_a.png",
+    "score": 15,
+    "checks": [
+      {
+        "element": "发型",
+        "matched": false,
+        "expected": "灰白相间、向后梳理的齐耳短发，发根深灰、发梢渐白，两侧贴耳",
+        "actual": "灰黑相间、蓬松上梳的中长发，顶部黑多灰少，两侧略蓬松"
+      },
+      {
+        "element": "脸型",
+        "matched": false,
+        "expected": "长方形脸，下颌线清晰，颧骨中等，面部较瘦削",
+        "actual": "圆润宽脸，双颊饱满，下颌线圆钝，明显丰腴"
+      },
+      {
+        "element": "眉眼",
+        "matched": false,
+        "expected": "细长平直眉，内眼角略下垂，眼裂中等，双眼皮浅",
+        "actual": "粗浓上扬眉，眉峰明显，眼裂宽，笑时眯眼明显，内眼角上提"
+      },
+      {
+        "element": "肤色",
+        "matched": false,
+        "expected": "自然偏黄肤色，面部有少量老年斑与细纹，颈部肤色一致",
+        "actual": "偏红润肤色，双颊泛红明显，无老年斑，颈部肤色略暗但无明显过渡差异"
+      },
+      {
+        "element": "体型",
+        "matched": false,
+        "expected": "肩宽适中，颈部修长，锁骨可见，身形偏清瘦",
+        "actual": "肩宽较宽，颈部粗短，双下巴明显，体型壮实"
+      }
+    ],
+    "diff": "五项要素均显著不同，非同一角色",
+    "model": "qwen3-vl-plus",
+    "judge_version": "m0-judge-v1",
+    "missing_elements": [],
+    "usage": {
+      "prompt_tokens": 5432,
+      "completion_tokens": 560,
+      "total_tokens": 5992,
+      "request_id": "chatcmpl-e4f01c5a-e659-9ecd-a6cc-686a68b4ff61",
+      "response_model": "qwen3-vl-plus"
+    },
+    "payload_bytes": 9414485,
+    "reference_size": [
+      1440,
+      2560
+    ],
+    "image_size": [
+      1440,
+      2560
+    ],
+    "swapped": false,
+    "thinking": true
+  },
+  {
+    "pair_id": "D13",
+    "reference": "13_a.png",
+    "image": "14_a.png",
+    "score": 35,
+    "checks": [
+      {
+        "element": "发型",
+        "matched": false,
+        "expected": "黑色齐肩双马尾，带蓝色发圈，齐刘海",
+        "actual": "棕色齐肩短发，内扣，齐刘海"
+      },
+      {
+        "element": "脸型",
+        "matched": false,
+        "expected": "椭圆形脸，下颌线柔和",
+        "actual": "偏圆润脸型，下颌更宽短"
+      },
+      {
+        "element": "眉眼",
+        "matched": false,
+        "expected": "细长上扬眉，大而圆的杏眼，眼距适中",
+        "actual": "平直短眉，较小且略下垂的眼型，眼距稍窄"
+      },
+      {
+        "element": "肤色",
+        "matched": true,
+        "expected": "白皙偏粉调肤色，面部与颈部过渡自然",
+        "actual": "白皙偏冷调肤色，面部与颈部一致"
+      },
+      {
+        "element": "体型",
+        "matched": false,
+        "expected": "肩宽适中，身形修长，腰线明显",
+        "actual": "肩部略宽，上身比例稍短，腰线较弱"
+      }
+    ],
+    "diff": "发型、脸型、眉眼、体型四项明显不同，仅肤色基本一致",
+    "model": "qwen3-vl-plus",
+    "judge_version": "m0-judge-v1",
+    "missing_elements": [],
+    "usage": {
+      "prompt_tokens": 5432,
+      "completion_tokens": 468,
+      "total_tokens": 5900,
+      "request_id": "chatcmpl-7b862d44-b68e-9d4e-abb1-4f125fd5e454",
+      "response_model": "qwen3-vl-plus"
+    },
+    "payload_bytes": 7653737,
+    "reference_size": [
+      1440,
+      2560
+    ],
+    "image_size": [
+      1440,
+      2560
+    ],
+    "swapped": false,
+    "thinking": true
+  },
+  {
+    "pair_id": "D14",
+    "reference": "13_a.png",
+    "image": "15_a.png",
+    "score": 65,
+    "checks": [
+      {
+        "element": "发型",
+        "matched": false,
+        "expected": "黑色齐肩直发，双马尾，蓝色发圈，齐刘海",
+        "actual": "黑色及肩发高马尾，红色发圈，斜刘海"
+      },
+      {
+        "element": "脸型",
+        "matched": true,
+        "expected": "椭圆形脸，下颌线条柔和",
+        "actual": "椭圆形脸，下颌线条柔和"
+      },
+      {
+        "element": "眉眼",
+        "matched": true,
+        "expected": "细长弯眉，杏仁眼，眼距适中，棕色瞳孔",
+        "actual": "细长弯眉，杏仁眼，眼距适中，棕色瞳孔"
+      },
+      {
+        "element": "肤色",
+        "matched": true,
+        "expected": "自然偏白肤色，面部与颈部无色差",
+        "actual": "自然偏白肤色，面部与颈部无色差"
+      },
+      {
+        "element": "体型",
+        "matched": false,
+        "expected": "肩宽适中，身形匀称，上身略修长",
+        "actual": "肩部略宽，上身比例稍短，整体更显运动感"
+      }
+    ],
+    "diff": "发型与体型两项明显不同：发型从双马尾齐刘海变为高马尾斜刘海；体型从修长匀称变为肩宽略大、上身稍短。",
+    "model": "qwen3-vl-plus",
+    "judge_version": "m0-judge-v1",
+    "missing_elements": [],
+    "usage": {
+      "prompt_tokens": 5432,
+      "completion_tokens": 422,
+      "total_tokens": 5854,
+      "request_id": "chatcmpl-efb78016-dcc5-94bc-b698-9d45a212589a",
+      "response_model": "qwen3-vl-plus"
+    },
+    "payload_bytes": 8131925,
+    "reference_size": [
+      1440,
+      2560
+    ],
+    "image_size": [
+      1440,
+      2560
+    ],
+    "swapped": false,
+    "thinking": true
+  },
+  {
+    "pair_id": "D15",
+    "reference": "14_a.png",
+    "image": "15_a.png",
+    "score": 15,
+    "checks": [
+      {
+        "element": "发型",
+        "matched": false,
+        "expected": "棕色齐肩直发，带齐刘海",
+        "actual": "黑色高马尾，带碎刘海，用红色发圈束起"
+      },
+      {
+        "element": "脸型",
+        "matched": false,
+        "expected": "椭圆形脸，下颌线柔和",
+        "actual": "偏圆润脸型，下颌略宽，苹果肌更饱满"
+      },
+      {
+        "element": "眉眼",
+        "matched": false,
+        "expected": "细长平眉，内双眼皮，眼距适中，眼神平静",
+        "actual": "弯月形粗眉，大双眼皮，眼距略宽，眼神明亮上扬"
+      },
+      {
+        "element": "肤色",
+        "matched": false,
+        "expected": "白皙均匀肤色，无明显雀斑",
+        "actual": "偏暖调肤色，脸颊有少量雀斑"
+      },
+      {
+        "element": "体型",
+        "matched": false,
+        "expected": "肩宽适中，身形修长，腰线清晰",
+        "actual": "肩部略宽，上身比例稍短，腰线被运动服遮挡不明显"
+      }
+    ],
+    "diff": "五项要素均不一致，明显非同一角色",
+    "model": "qwen3-vl-plus",
+    "judge_version": "m0-judge-v1",
+    "missing_elements": [],
+    "usage": {
+      "prompt_tokens": 5432,
+      "completion_tokens": 491,
+      "total_tokens": 5923,
+      "request_id": "chatcmpl-e1d11b82-df34-95cb-910e-c46c83147ceb",
+      "response_model": "qwen3-vl-plus"
+    },
+    "payload_bytes": 7511781,
+    "reference_size": [
+      1440,
+      2560
+    ],
+    "image_size": [
+      1440,
+      2560
+    ],
+    "swapped": false,
+    "thinking": true
+  },
+  {
+    "pair_id": "S01",
+    "reference": "01_a.png",
+    "image": "01_b.png",
+    "score": 95,
+    "checks": [
+      {
+        "element": "发型",
+        "matched": true,
+        "expected": "黑色齐肩直发，有空气刘海，中分偏左",
+        "actual": "黑色齐肩直发，有空气刘海，中分偏左"
+      },
+      {
+        "element": "脸型",
+        "matched": true,
+        "expected": "椭圆形脸，下颌线柔和，颧骨不突出",
+        "actual": "椭圆形脸，下颌线柔和，颧骨不突出"
+      },
+      {
+        "element": "眉眼",
+        "matched": true,
+        "expected": "细长自然眉，双眼皮，眼型略杏仁，眼距适中",
+        "actual": "细长自然眉，双眼皮，眼型略杏仁，眼距适中"
+      },
+      {
+        "element": "肤色",
+        "matched": true,
+        "expected": "白皙均匀肤色，面部与颈部无色差",
+        "actual": "白皙均匀肤色，面部与颈部无色差"
+      },
+      {
+        "element": "体型",
+        "matched": true,
+        "expected": "窄肩，颈部修长，身形纤细",
+        "actual": "窄肩，颈部修长，身形纤细"
+      }
+    ],
+    "diff": "",
+    "model": "qwen3-vl-plus",
+    "judge_version": "m0-judge-v1",
+    "missing_elements": [],
+    "usage": {
+      "prompt_tokens": 5432,
+      "completion_tokens": 327,
+      "total_tokens": 5759,
+      "request_id": "chatcmpl-f83de096-e524-9c99-8c9a-227497037e41",
+      "response_model": "qwen3-vl-plus"
+    },
+    "payload_bytes": 9378533,
+    "reference_size": [
+      1440,
+      2560
+    ],
+    "image_size": [
+      1440,
+      2560
+    ],
+    "swapped": false,
+    "thinking": true
+  },
+  {
+    "pair_id": "S02",
+    "reference": "02_a.png",
+    "image": "02_b.png",
+    "score": 95,
+    "checks": [
+      {
+        "element": "发型",
+        "matched": true,
+        "expected": "红棕色高马尾，额前有碎发，发根蓬松",
+        "actual": "红棕色高马尾，额前有碎发，发根蓬松"
+      },
+      {
+        "element": "脸型",
+        "matched": true,
+        "expected": "椭圆形脸，下颌线条柔和",
+        "actual": "椭圆形脸，下颌线条柔和"
+      },
+      {
+        "element": "眉眼",
+        "matched": true,
+        "expected": "细长弯眉，杏仁眼，中等眼距",
+        "actual": "细长弯眉，杏仁眼，中等眼距"
+      },
+      {
+        "element": "肤色",
+        "matched": true,
+        "expected": "自然偏暖白皙肤色，面部与颈部无色差",
+        "actual": "自然偏暖白皙肤色，面部与颈部无色差"
+      },
+      {
+        "element": "体型",
+        "matched": true,
+        "expected": "肩宽适中，颈部修长，身形纤细",
+        "actual": "肩宽适中，颈部修长，身形纤细"
+      }
+    ],
+    "diff": "",
+    "model": "qwen3-vl-plus",
+    "judge_version": "m0-judge-v1",
+    "missing_elements": [],
+    "usage": {
+      "prompt_tokens": 5432,
+      "completion_tokens": 319,
+      "total_tokens": 5751,
+      "request_id": "chatcmpl-81a31ade-f1fb-94d3-94f3-edecfdce5a0f",
+      "response_model": "qwen3-vl-plus"
+    },
+    "payload_bytes": 9133961,
+    "reference_size": [
+      1440,
+      2560
+    ],
+    "image_size": [
+      1440,
+      2560
+    ],
+    "swapped": false,
+    "thinking": true
+  },
+  {
+    "pair_id": "S03",
+    "reference": "03_a.png",
+    "image": "03_b.png",
+    "score": 95,
+    "checks": [
+      {
+        "element": "发型",
+        "matched": true,
+        "expected": "深棕色高盘发髻，顶部蓬松，两侧有少量碎发垂落",
+        "actual": "深棕色高盘发髻，顶部蓬松，两侧有少量碎发垂落"
+      },
+      {
+        "element": "脸型",
+        "matched": true,
+        "expected": "鹅蛋脸，下颌线清晰柔和，颧骨微显",
+        "actual": "鹅蛋脸，下颌线清晰柔和，颧骨微显"
+      },
+      {
+        "element": "眉眼",
+        "matched": true,
+        "expected": "自然弯眉，中等粗细；杏仁眼，双眼皮明显，眼距适中",
+        "actual": "自然弯眉，中等粗细；杏仁眼，双眼皮明显，眼距适中"
+      },
+      {
+        "element": "肤色",
+        "matched": true,
+        "expected": "均匀暖调浅肤色，面部与颈部无色差",
+        "actual": "均匀暖调浅肤色，面部与颈部无色差（待判画面右侧光照略强，但肤色基底一致）"
+      },
+      {
+        "element": "体型",
+        "matched": true,
+        "expected": "肩宽适中，锁骨明显，颈部修长，身形偏纤细",
+        "actual": "肩宽适中，锁骨明显，颈部修长，身形偏纤细"
+      }
+    ],
+    "diff": "",
+    "model": "qwen3-vl-plus",
+    "judge_version": "m0-judge-v1",
+    "missing_elements": [],
+    "usage": {
+      "prompt_tokens": 5432,
+      "completion_tokens": 349,
+      "total_tokens": 5781,
+      "request_id": "chatcmpl-c33711e4-0a34-9f1b-8bb3-e143ab6c290d",
+      "response_model": "qwen3-vl-plus"
+    },
+    "payload_bytes": 7881569,
+    "reference_size": [
+      1440,
+      2560
+    ],
+    "image_size": [
+      1440,
+      2560
+    ],
+    "swapped": false,
+    "thinking": true
+  },
+  {
+    "pair_id": "S04",
+    "reference": "04_a.png",
+    "image": "04_b.png",
+    "score": 95,
+    "checks": [
+      {
+        "element": "发型",
+        "matched": true,
+        "expected": "黑色短寸头，长度约3mm，顶部略蓬松，两侧及后颈剃短",
+        "actual": "黑色短寸头，长度约3mm，顶部略蓬松，两侧及后颈剃短"
+      },
+      {
+        "element": "脸型",
+        "matched": true,
+        "expected": "方形脸，下颌角明显，颧骨中等突出，面部轮廓硬朗",
+        "actual": "方形脸，下颌角明显，颧骨中等突出，面部轮廓硬朗"
+      },
+      {
+        "element": "眉眼",
+        "matched": true,
+        "expected": "浓密平直粗眉，内眼角略低，双眼皮，眼距适中，瞳孔深棕色",
+        "actual": "浓密平直粗眉，内眼角略低，双眼皮，眼距适中，瞳孔深棕色"
+      },
+      {
+        "element": "肤色",
+        "matched": true,
+        "expected": "暖调黄褐色肤色，面部有少量雀斑与轻微泛红，颈部肤色一致",
+        "actual": "暖调黄褐色肤色，面部有少量雀斑与轻微泛红，颈部肤色一致"
+      },
+      {
+        "element": "体型",
+        "matched": true,
+        "expected": "肩宽适中，颈部肌肉线条清晰，锁骨可见，身形偏健壮",
+        "actual": "肩宽适中，颈部肌肉线条清晰，锁骨可见，身形偏健壮"
+      }
+    ],
+    "diff": "",
+    "model": "qwen3-vl-plus",
+    "judge_version": "m0-judge-v1",
+    "missing_elements": [],
+    "usage": {
+      "prompt_tokens": 5432,
+      "completion_tokens": 395,
+      "total_tokens": 5827,
+      "request_id": "chatcmpl-32005036-ed2b-95d5-a1d3-db42309d5d4a",
+      "response_model": "qwen3-vl-plus"
+    },
+    "payload_bytes": 9273329,
+    "reference_size": [
+      1440,
+      2560
+    ],
+    "image_size": [
+      1440,
+      2560
+    ],
+    "swapped": false,
+    "thinking": true
+  },
+  {
+    "pair_id": "S05",
+    "reference": "05_a.png",
+    "image": "05_b.png",
+    "score": 95,
+    "checks": [
+      {
+        "element": "发型",
+        "matched": true,
+        "expected": "黑色中分背头，长度及耳，发丝光滑有光泽",
+        "actual": "黑色中分背头，长度及耳，发丝光滑有光泽"
+      },
+      {
+        "element": "脸型",
+        "matched": true,
+        "expected": "长椭圆形脸，下颌线清晰，颧骨微收",
+        "actual": "长椭圆形脸，下颌线清晰，颧骨微收"
+      },
+      {
+        "element": "眉眼",
+        "matched": true,
+        "expected": "细长剑眉，双眼皮，杏仁眼，眼距适中",
+        "actual": "细长剑眉，双眼皮，杏仁眼，眼距适中"
+      },
+      {
+        "element": "肤色",
+        "matched": true,
+        "expected": "自然偏白肤色，面部与颈部无色差",
+        "actual": "自然偏白肤色，面部与颈部无色差"
+      },
+      {
+        "element": "体型",
+        "matched": true,
+        "expected": "肩宽适中，锁骨明显，身形修长匀称",
+        "actual": "肩宽适中，锁骨明显，身形修长匀称"
+      }
+    ],
+    "diff": "",
+    "model": "qwen3-vl-plus",
+    "judge_version": "m0-judge-v1",
+    "missing_elements": [],
+    "usage": {
+      "prompt_tokens": 5432,
+      "completion_tokens": 335,
+      "total_tokens": 5767,
+      "request_id": "chatcmpl-da30f390-3434-9253-b12a-6b664578d2c5",
+      "response_model": "qwen3-vl-plus"
+    },
+    "payload_bytes": 6974361,
+    "reference_size": [
+      1440,
+      2560
+    ],
+    "image_size": [
+      1440,
+      2560
+    ],
+    "swapped": false,
+    "thinking": true
+  },
+  {
+    "pair_id": "S06",
+    "reference": "06_a.png",
+    "image": "06_b.png",
+    "score": 85,
+    "checks": [
+      {
+        "element": "发型",
+        "matched": true,
+        "expected": "黑色齐肩中长发，前额有斜刘海覆盖眉上，两侧发尾略过耳垂",
+        "actual": "深棕色齐肩中长发，前额有斜刘海覆盖眉上，两侧发尾略过耳垂"
+      },
+      {
+        "element": "脸型",
+        "matched": true,
+        "expected": "瘦长椭圆脸，下颌线清晰收窄，颧骨微显",
+        "actual": "瘦长椭圆脸，下颌线清晰收窄，颧骨微显"
+      },
+      {
+        "element": "眉眼",
+        "matched": true,
+        "expected": "细长剑眉，内眼角略下垂，双眼皮明显，眼距适中，瞳色浅棕",
+        "actual": "细长剑眉，内眼角略下垂，双眼皮明显，眼距适中，瞳色浅棕"
+      },
+      {
+        "element": "肤色",
+        "matched": false,
+        "expected": "冷调白皙肤色，面部与颈部无明显色差",
+        "actual": "暖调偏黄白肤色，面部受光侧泛橘红光，颈部略暗"
+      },
+      {
+        "element": "体型",
+        "matched": true,
+        "expected": "窄肩、修长颈线，高领毛衣贴合肩颈轮廓",
+        "actual": "窄肩、修长颈线，高领毛衣贴合肩颈轮廓"
+      }
+    ],
+    "diff": "发型发色（黑→深棕）、肤色（冷白→暖黄白带光影偏色）存在可见差异",
+    "model": "qwen3-vl-plus",
+    "judge_version": "m0-judge-v1",
+    "missing_elements": [],
+    "usage": {
+      "prompt_tokens": 5432,
+      "completion_tokens": 461,
+      "total_tokens": 5893,
+      "request_id": "chatcmpl-e2ca3aa0-4c6d-9328-ba33-9fb04f2a855d",
+      "response_model": "qwen3-vl-plus"
+    },
+    "payload_bytes": 8128709,
+    "reference_size": [
+      1440,
+      2560
+    ],
+    "image_size": [
+      1440,
+      2560
+    ],
+    "swapped": false,
+    "thinking": true
+  },
+  {
+    "pair_id": "S07",
+    "reference": "07_a.png",
+    "image": "07_b.png",
+    "score": 95,
+    "checks": [
+      {
+        "element": "发型",
+        "matched": true,
+        "expected": "灰白色齐肩波浪卷发，发尾内扣，额前有自然蓬松弧度",
+        "actual": "灰白色齐肩波浪卷发，发尾内扣，额前有自然蓬松弧度"
+      },
+      {
+        "element": "脸型",
+        "matched": true,
+        "expected": "椭圆形脸，下颌线柔和，颧骨微凸",
+        "actual": "椭圆形脸，下颌线柔和，颧骨微凸"
+      },
+      {
+        "element": "眉眼",
+        "matched": true,
+        "expected": "细长自然眉，内低外高；双眼皮，眼型略长，眼距适中，眼角有细纹",
+        "actual": "细长自然眉，内低外高；双眼皮，眼型略长，眼距适中，眼角有细纹"
+      },
+      {
+        "element": "肤色",
+        "matched": true,
+        "expected": "暖调浅黄褐色肤色，面部与颈部色差小，有自然斑点与毛孔纹理",
+        "actual": "暖调浅黄褐色肤色，面部与颈部色差小，有自然斑点与毛孔纹理"
+      },
+      {
+        "element": "体型",
+        "matched": true,
+        "expected": "中等肩宽，颈部修长，上身比例匀称，无明显赘肉",
+        "actual": "中等肩宽，颈部修长，上身比例匀称，无明显赘肉"
+      }
+    ],
+    "diff": "",
+    "model": "qwen3-vl-plus",
+    "judge_version": "m0-judge-v1",
+    "missing_elements": [],
+    "usage": {
+      "prompt_tokens": 5432,
+      "completion_tokens": 399,
+      "total_tokens": 5831,
+      "request_id": "chatcmpl-2d23e757-b484-9cf2-90f4-66bb730b1052",
+      "response_model": "qwen3-vl-plus"
+    },
+    "payload_bytes": 7994513,
+    "reference_size": [
+      1440,
+      2560
+    ],
+    "image_size": [
+      1440,
+      2560
+    ],
+    "swapped": false,
+    "thinking": true
+  },
+  {
+    "pair_id": "S08",
+    "reference": "08_a.png",
+    "image": "08_b.png",
+    "score": 95,
+    "checks": [
+      {
+        "element": "发型",
+        "matched": true,
+        "expected": "红棕色及肩卷发，蓬松大波浪，发根隆起，两侧对称卷曲",
+        "actual": "红棕色及肩卷发，蓬松大波浪，发根隆起，左侧卷曲略紧、右侧稍松但整体轮廓一致"
+      },
+      {
+        "element": "脸型",
+        "matched": true,
+        "expected": "椭圆形脸，下颌线柔和，颧骨微凸，苹果肌饱满",
+        "actual": "椭圆形脸，下颌线柔和，颧骨微凸，苹果肌饱满（侧脸视角下轮廓一致）"
+      },
+      {
+        "element": "眉眼",
+        "matched": true,
+        "expected": "细长上挑眉，内窄外宽；杏仁眼，眼尾轻微上扬，双眼皮清晰，眼距适中",
+        "actual": "细长上挑眉，内窄外宽；杏仁眼，眼尾上扬，双眼皮清晰（侧脸可见眼型与角度匹配）"
+      },
+      {
+        "element": "肤色",
+        "matched": true,
+        "expected": "暖调自然肤色，面部与颈部无色差，有轻微光泽感",
+        "actual": "暖调自然肤色，面部与颈部过渡自然，光照下略有高光但色相一致"
+      },
+      {
+        "element": "体型",
+        "matched": true,
+        "expected": "中等肩宽，上身匀称，腰线收束明显，身形修长",
+        "actual": "中等肩宽，上身匀称，腰线收束明显（侧身可见胸腰比与肩颈比例一致）"
+      }
+    ],
+    "diff": "",
+    "model": "qwen3-vl-plus",
+    "judge_version": "m0-judge-v1",
+    "missing_elements": [],
+    "usage": {
+      "prompt_tokens": 5432,
+      "completion_tokens": 436,
+      "total_tokens": 5868,
+      "request_id": "chatcmpl-daaf0ab0-91a7-9b99-9c2c-290de8669670",
+      "response_model": "qwen3-vl-plus"
+    },
+    "payload_bytes": 8203801,
+    "reference_size": [
+      1440,
+      2560
+    ],
+    "image_size": [
+      1440,
+      2560
+    ],
+    "swapped": false,
+    "thinking": true
+  },
+  {
+    "pair_id": "S09",
+    "reference": "09_a.png",
+    "image": "09_b.png",
+    "score": 95,
+    "checks": [
+      {
+        "element": "发型",
+        "matched": true,
+        "expected": "黑色齐肩短发，中分，发尾内扣",
+        "actual": "黑色齐肩短发，中分，发尾内扣"
+      },
+      {
+        "element": "脸型",
+        "matched": true,
+        "expected": "椭圆形脸，下颌线清晰，颧骨略显",
+        "actual": "椭圆形脸，下颌线清晰，颧骨略显"
+      },
+      {
+        "element": "眉眼",
+        "matched": true,
+        "expected": "自然弧度眉，中等粗细；杏仁眼，眼距适中，内眦略低",
+        "actual": "自然弧度眉，中等粗细；杏仁眼，眼距适中，内眦略低"
+      },
+      {
+        "element": "肤色",
+        "matched": true,
+        "expected": "自然偏黄肤色，面部与颈部色调一致，有少量雀斑",
+        "actual": "自然偏黄肤色，面部与颈部色调一致，有少量雀斑"
+      },
+      {
+        "element": "体型",
+        "matched": true,
+        "expected": "中等肩宽，颈部修长，上身比例匀称",
+        "actual": "中等肩宽，颈部修长，上身比例匀称"
+      }
+    ],
+    "diff": "",
+    "model": "qwen3-vl-plus",
+    "judge_version": "m0-judge-v1",
+    "missing_elements": [],
+    "usage": {
+      "prompt_tokens": 5432,
+      "completion_tokens": 351,
+      "total_tokens": 5783,
+      "request_id": "chatcmpl-f4086732-e901-97f1-a157-36a15f6884c3",
+      "response_model": "qwen3-vl-plus"
+    },
+    "payload_bytes": 9359021,
+    "reference_size": [
+      1440,
+      2560
+    ],
+    "image_size": [
+      1440,
+      2560
+    ],
+    "swapped": false,
+    "thinking": true
+  },
+  {
+    "pair_id": "S10",
+    "reference": "10_a.png",
+    "image": "10_b.png",
+    "score": 95,
+    "checks": [
+      {
+        "element": "发型",
+        "matched": true,
+        "expected": "灰白色短发，长度及耳，顶部略蓬松，两侧修剪整齐",
+        "actual": "灰白色短发，长度及耳，顶部略蓬松，两侧修剪整齐"
+      },
+      {
+        "element": "脸型",
+        "matched": true,
+        "expected": "方形脸，下颌角明显，颧骨中等突出",
+        "actual": "方形脸，下颌角明显，颧骨中等突出"
+      },
+      {
+        "element": "眉眼",
+        "matched": true,
+        "expected": "浓密平直粗眉，内眼角略下垂，双眼皮，眼距适中",
+        "actual": "浓密平直粗眉，内眼角略下垂，双眼皮，眼距适中"
+      },
+      {
+        "element": "肤色",
+        "matched": true,
+        "expected": "黄褐色偏红润肤色，面部有明显晒斑与泛红区域",
+        "actual": "黄褐色偏红润肤色，面部有明显晒斑与泛红区域"
+      },
+      {
+        "element": "体型",
+        "matched": true,
+        "expected": "中等肩宽，颈部粗壮，可见轻微双下巴轮廓",
+        "actual": "中等肩宽，颈部粗壮，可见轻微双下巴轮廓"
+      }
+    ],
+    "diff": "",
+    "model": "qwen3-vl-plus",
+    "judge_version": "m0-judge-v1",
+    "missing_elements": [],
+    "usage": {
+      "prompt_tokens": 5432,
+      "completion_tokens": 355,
+      "total_tokens": 5787,
+      "request_id": "chatcmpl-8b146d7d-431d-9b55-b54b-66114d4c342c",
+      "response_model": "qwen3-vl-plus"
+    },
+    "payload_bytes": 9205181,
+    "reference_size": [
+      1440,
+      2560
+    ],
+    "image_size": [
+      1440,
+      2560
+    ],
+    "swapped": false,
+    "thinking": true
+  },
+  {
+    "pair_id": "S11",
+    "reference": "11_a.png",
+    "image": "11_b.png",
+    "score": 95,
+    "checks": [
+      {
+        "element": "发型",
+        "matched": true,
+        "expected": "灰白相间中分短发，长度及耳，后颈发尾略长",
+        "actual": "灰白相间中分短发，长度及耳，后颈发尾略长"
+      },
+      {
+        "element": "脸型",
+        "matched": true,
+        "expected": "长方形脸，下颌线清晰，颧骨微凸",
+        "actual": "长方形脸，下颌线清晰，颧骨微凸"
+      },
+      {
+        "element": "眉眼",
+        "matched": true,
+        "expected": "浓密平直眉，内眼角略下垂，双眼皮，眼距适中",
+        "actual": "浓密平直眉，内眼角略下垂，双眼皮，眼距适中"
+      },
+      {
+        "element": "肤色",
+        "matched": true,
+        "expected": "自然偏黄肤色，面部与颈部色调一致，有少量老年斑",
+        "actual": "自然偏黄肤色，面部与颈部色调一致，有少量老年斑"
+      },
+      {
+        "element": "体型",
+        "matched": true,
+        "expected": "中等肩宽，颈部修长，上身挺直，无明显赘肉",
+        "actual": "中等肩宽，颈部修长，上身挺直，无明显赘肉"
+      }
+    ],
+    "diff": "",
+    "model": "qwen3-vl-plus",
+    "judge_version": "m0-judge-v1",
+    "missing_elements": [],
+    "usage": {
+      "prompt_tokens": 5432,
+      "completion_tokens": 363,
+      "total_tokens": 5795,
+      "request_id": "chatcmpl-54ca7c4d-b520-9763-ac24-45741b413133",
+      "response_model": "qwen3-vl-plus"
+    },
+    "payload_bytes": 8413713,
+    "reference_size": [
+      1440,
+      2560
+    ],
+    "image_size": [
+      1440,
+      2560
+    ],
+    "swapped": false,
+    "thinking": true
+  },
+  {
+    "pair_id": "S12",
+    "reference": "12_a.png",
+    "image": "12_b.png",
+    "score": 95,
+    "checks": [
+      {
+        "element": "发型",
+        "matched": true,
+        "expected": "黑白相间短发，顶部灰白、两侧深黑，向后梳理，长度及耳上",
+        "actual": "黑白相间短发，顶部灰白、两侧深黑，向后梳理，长度及耳上"
+      },
+      {
+        "element": "脸型",
+        "matched": true,
+        "expected": "圆润饱满脸型，双颊明显鼓起，下颌线圆钝",
+        "actual": "圆润饱满脸型，双颊明显鼓起，下颌线圆钝"
+      },
+      {
+        "element": "眉眼",
+        "matched": true,
+        "expected": "浓黑粗平眉，双眼皮，眼型略细长，眼距适中，笑时眼角褶皱明显",
+        "actual": "浓黑粗平眉，双眼皮，眼型略细长，眼距适中，笑时眼角褶皱明显"
+      },
+      {
+        "element": "肤色",
+        "matched": true,
+        "expected": "暖调黄褐色肤色，双颊泛红，颈部与面部色差小",
+        "actual": "暖调黄褐色肤色，双颊泛红，颈部与面部色差小"
+      },
+      {
+        "element": "体型",
+        "matched": true,
+        "expected": "宽肩厚颈，面部与颈部过渡自然，显壮实体型",
+        "actual": "宽肩厚颈，面部与颈部过渡自然，显壮实体型"
+      }
+    ],
+    "diff": "",
+    "model": "qwen3-vl-plus",
+    "judge_version": "m0-judge-v1",
+    "missing_elements": [],
+    "usage": {
+      "prompt_tokens": 5432,
+      "completion_tokens": 364,
+      "total_tokens": 5796,
+      "request_id": "chatcmpl-ce0b0fac-231d-96a4-8b39-7d39718bed25",
+      "response_model": "qwen3-vl-plus"
+    },
+    "payload_bytes": 9753865,
+    "reference_size": [
+      1440,
+      2560
+    ],
+    "image_size": [
+      1440,
+      2560
+    ],
+    "swapped": false,
+    "thinking": true
+  },
+  {
+    "pair_id": "S13",
+    "reference": "13_a.png",
+    "image": "13_b.png",
+    "score": 85,
+    "checks": [
+      {
+        "element": "发型",
+        "matched": false,
+        "expected": "黑色齐肩直发，双马尾，蓝色发圈，齐刘海",
+        "actual": "黑色及肩直发，单马尾（右侧），蓝色发圈，齐刘海"
+      },
+      {
+        "element": "脸型",
+        "matched": true,
+        "expected": "椭圆形脸，下颌线条柔和",
+        "actual": "椭圆形脸，下颌线条柔和"
+      },
+      {
+        "element": "眉眼",
+        "matched": true,
+        "expected": "细长弯眉，杏仁眼，中等眼距，棕色瞳孔",
+        "actual": "细长弯眉，杏仁眼，中等眼距，棕色瞳孔"
+      },
+      {
+        "element": "肤色",
+        "matched": true,
+        "expected": "白皙偏粉调，面部与颈部无色差",
+        "actual": "白皙偏粉调，面部与颈部无色差"
+      },
+      {
+        "element": "体型",
+        "matched": true,
+        "expected": "纤细肩宽，匀称身形，腰线明显",
+        "actual": "纤细肩宽，匀称身形，腰线明显"
+      }
+    ],
+    "diff": "发型：马尾数量不一致——参考图是双马尾，待判画面是单马尾",
+    "model": "qwen3-vl-plus",
+    "judge_version": "m0-judge-v1",
+    "missing_elements": [],
+    "usage": {
+      "prompt_tokens": 5432,
+      "completion_tokens": 371,
+      "total_tokens": 5803,
+      "request_id": "chatcmpl-db120c93-7ff9-9cc7-8c87-b606315f3631",
+      "response_model": "qwen3-vl-plus"
+    },
+    "payload_bytes": 7364093,
+    "reference_size": [
+      1440,
+      2560
+    ],
+    "image_size": [
+      1440,
+      2560
+    ],
+    "swapped": false,
+    "thinking": true
+  },
+  {
+    "pair_id": "S14",
+    "reference": "14_a.png",
+    "image": "14_b.png",
+    "score": 95,
+    "checks": [
+      {
+        "element": "发型",
+        "matched": true,
+        "expected": "棕色齐肩直发，带齐刘海",
+        "actual": "棕色齐肩直发，带齐刘海"
+      },
+      {
+        "element": "脸型",
+        "matched": true,
+        "expected": "椭圆形脸，下颌线条柔和",
+        "actual": "椭圆形脸，下颌线条柔和"
+      },
+      {
+        "element": "眉眼",
+        "matched": true,
+        "expected": "细长自然眉形，杏仁眼，中等眼距",
+        "actual": "细长自然眉形，杏仁眼，中等眼距"
+      },
+      {
+        "element": "肤色",
+        "matched": true,
+        "expected": "白皙均匀肤色，面部与颈部无色差",
+        "actual": "白皙均匀肤色，面部与颈部无色差"
+      },
+      {
+        "element": "体型",
+        "matched": true,
+        "expected": "纤细身形，肩宽适中，腰线明显",
+        "actual": "纤细身形，肩宽适中，腰线明显"
+      }
+    ],
+    "diff": "",
+    "model": "qwen3-vl-plus",
+    "judge_version": "m0-judge-v1",
+    "missing_elements": [],
+    "usage": {
+      "prompt_tokens": 5432,
+      "completion_tokens": 303,
+      "total_tokens": 5735,
+      "request_id": "chatcmpl-d93337a0-c22f-964a-9ac1-a169eddc01c5",
+      "response_model": "qwen3-vl-plus"
+    },
+    "payload_bytes": 6514997,
+    "reference_size": [
+      1440,
+      2560
+    ],
+    "image_size": [
+      1440,
+      2560
+    ],
+    "swapped": false,
+    "thinking": true
+  },
+  {
+    "pair_id": "S15",
+    "reference": "15_a.png",
+    "image": "15_b.png",
+    "score": 95,
+    "checks": [
+      {
+        "element": "发型",
+        "matched": true,
+        "expected": "黑色齐肩长度高马尾，红色发圈，额前有空气刘海",
+        "actual": "黑色齐肩长度高马尾，红色发圈，额前有空气刘海"
+      },
+      {
+        "element": "脸型",
+        "matched": true,
+        "expected": "椭圆形脸，下颌线柔和，脸颊饱满",
+        "actual": "椭圆形脸，下颌线柔和，脸颊饱满"
+      },
+      {
+        "element": "眉眼",
+        "matched": true,
+        "expected": "细长弯眉，杏仁眼，眼距适中，瞳色浅棕",
+        "actual": "细长弯眉，杏仁眼，眼距适中，瞳色浅棕"
+      },
+      {
+        "element": "肤色",
+        "matched": true,
+        "expected": "自然偏暖白皙肤色，面部与颈部无色差",
+        "actual": "自然偏暖白皙肤色，面部与颈部无色差（受侧光影响局部阴影加深，但基底肤色一致）"
+      },
+      {
+        "element": "体型",
+        "matched": true,
+        "expected": "中等肩宽，身形匀称，颈部修长",
+        "actual": "中等肩宽，身形匀称，颈部修长（景别为近景特写，肩部未全显，但可见比例协调）"
+      }
+    ],
+    "diff": "",
+    "model": "qwen3-vl-plus",
+    "judge_version": "m0-judge-v1",
+    "missing_elements": [],
+    "usage": {
+      "prompt_tokens": 5432,
+      "completion_tokens": 347,
+      "total_tokens": 5779,
+      "request_id": "chatcmpl-cce6053d-2e0f-9601-b12a-2e41faf1cefa",
+      "response_model": "qwen3-vl-plus"
+    },
+    "payload_bytes": 7574393,
+    "reference_size": [
+      1440,
+      2560
+    ],
+    "image_size": [
+      1440,
+      2560
+    ],
+    "swapped": false,
+    "thinking": true
+  }
+]

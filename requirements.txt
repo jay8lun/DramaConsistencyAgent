@@ -1,0 +1,22 @@
+# DramaConsistencyAgent · Python 依赖
+# 要求 3.11+（开发环境实测 3.12.15）。安装：pip install -r requirements.txt
+#
+# 另需系统级 **ffmpeg**（S5 拼接与烧字幕）。它是二进制不是 Python 包，所以不在这里：
+# 装好后把 bin 目录填进 .env 的 FFMPEG_DIR；留空则从 PATH 找。
+# 必须有 libx264 + libass + fontconfig，否则中文字幕会烧成一片方块、而 ffmpeg 仍返回 0。
+# 本机用的是 imageio-ffmpeg 提供的那份（gyan.dev essentials build，能力完整），
+# 缺点是不带 ffprobe，视频完整性校验会退到体积判据（state.py 有该降级分支）。
+#
+# 刻意不引入：
+#   numpy / scikit-learn —— M0 的 P5/P95 用标准库 statistics 就够
+#   ffmpeg-python        —— S5 直接 subprocess 调系统 ffmpeg
+#   pytest               —— 500 多项断言是按阶段拆的独立脚本，见 tests/README.md
+
+pydantic>=2.0        # models.py：v2 语法（field_validator / model_validator），不可降级 v1
+python-dotenv>=1.0   # config.py：读 .env
+openai>=1.0          # providers/llm.py：文本模型走 OpenAI 兼容协议
+httpx>=0.27          # 出图/视频 provider 直接发 HTTP；虽是 openai 的传递依赖，仍显式声明
+Pillow>=10.0         # 首帧裁成 720×1280（i2v 输出比例跟随首帧）、参考图压 JPEG
+fastapi>=0.100       # adapters/web：接口层
+uvicorn>=0.20        # 启动 Web 服务。**不要加 --reload**：会触发重复提交、重复扣费
+edge-tts>=6.1        # S5 配音，免费。版本常量失效时改 .env 的 TTS_SEC_VERSION

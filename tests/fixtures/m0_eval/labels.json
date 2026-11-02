@@ -1,0 +1,422 @@
+[
+  {
+    "pair_id": "S01",
+    "a": "01_a",
+    "b": "01_b",
+    "is_same_person": true,
+    "group": "A",
+    "elements": {
+      "发型": true,
+      "脸型": true,
+      "眉眼": true,
+      "肤色": true,
+      "体型": true
+    }
+  },
+  {
+    "pair_id": "S02",
+    "a": "02_a",
+    "b": "02_b",
+    "is_same_person": true,
+    "group": "A",
+    "elements": {
+      "发型": true,
+      "脸型": true,
+      "眉眼": true,
+      "肤色": true,
+      "体型": true
+    }
+  },
+  {
+    "pair_id": "S03",
+    "a": "03_a",
+    "b": "03_b",
+    "is_same_person": true,
+    "group": "A",
+    "elements": {
+      "发型": true,
+      "脸型": true,
+      "眉眼": true,
+      "肤色": true,
+      "体型": true
+    }
+  },
+  {
+    "pair_id": "S04",
+    "a": "04_a",
+    "b": "04_b",
+    "is_same_person": true,
+    "group": "B",
+    "elements": {
+      "发型": true,
+      "脸型": true,
+      "眉眼": true,
+      "肤色": true,
+      "体型": true
+    }
+  },
+  {
+    "pair_id": "S05",
+    "a": "05_a",
+    "b": "05_b",
+    "is_same_person": true,
+    "group": "B",
+    "elements": {
+      "发型": true,
+      "脸型": true,
+      "眉眼": true,
+      "肤色": true,
+      "体型": true
+    }
+  },
+  {
+    "pair_id": "S06",
+    "a": "06_a",
+    "b": "06_b",
+    "is_same_person": true,
+    "group": "B",
+    "elements": {
+      "发型": true,
+      "脸型": true,
+      "眉眼": true,
+      "肤色": true,
+      "体型": true
+    }
+  },
+  {
+    "pair_id": "S07",
+    "a": "07_a",
+    "b": "07_b",
+    "is_same_person": true,
+    "group": "C",
+    "elements": {
+      "发型": true,
+      "脸型": true,
+      "眉眼": true,
+      "肤色": true,
+      "体型": true
+    }
+  },
+  {
+    "pair_id": "S08",
+    "a": "08_a",
+    "b": "08_b",
+    "is_same_person": true,
+    "group": "C",
+    "elements": {
+      "发型": true,
+      "脸型": true,
+      "眉眼": true,
+      "肤色": true,
+      "体型": true
+    }
+  },
+  {
+    "pair_id": "S09",
+    "a": "09_a",
+    "b": "09_b",
+    "is_same_person": true,
+    "group": "C",
+    "elements": {
+      "发型": true,
+      "脸型": true,
+      "眉眼": true,
+      "肤色": true,
+      "体型": true
+    }
+  },
+  {
+    "pair_id": "S10",
+    "a": "10_a",
+    "b": "10_b",
+    "is_same_person": true,
+    "group": "D",
+    "elements": {
+      "发型": true,
+      "脸型": true,
+      "眉眼": true,
+      "肤色": true,
+      "体型": true
+    }
+  },
+  {
+    "pair_id": "S11",
+    "a": "11_a",
+    "b": "11_b",
+    "is_same_person": true,
+    "group": "D",
+    "elements": {
+      "发型": true,
+      "脸型": true,
+      "眉眼": true,
+      "肤色": true,
+      "体型": true
+    }
+  },
+  {
+    "pair_id": "S12",
+    "a": "12_a",
+    "b": "12_b",
+    "is_same_person": true,
+    "group": "D",
+    "elements": {
+      "发型": true,
+      "脸型": true,
+      "眉眼": true,
+      "肤色": true,
+      "体型": true
+    }
+  },
+  {
+    "pair_id": "S13",
+    "a": "13_a",
+    "b": "13_b",
+    "is_same_person": true,
+    "group": "E",
+    "elements": {
+      "发型": true,
+      "脸型": true,
+      "眉眼": true,
+      "肤色": true,
+      "体型": true
+    }
+  },
+  {
+    "pair_id": "S14",
+    "a": "14_a",
+    "b": "14_b",
+    "is_same_person": true,
+    "group": "E",
+    "elements": {
+      "发型": true,
+      "脸型": true,
+      "眉眼": true,
+      "肤色": true,
+      "体型": true
+    }
+  },
+  {
+    "pair_id": "S15",
+    "a": "15_a",
+    "b": "15_b",
+    "is_same_person": true,
+    "group": "E",
+    "elements": {
+      "发型": true,
+      "脸型": true,
+      "眉眼": true,
+      "肤色": true,
+      "体型": true
+    }
+  },
+  {
+    "pair_id": "D01",
+    "a": "01_a",
+    "b": "02_a",
+    "is_same_person": false,
+    "group": "A",
+    "elements": {
+      "发型": false,
+      "脸型": false,
+      "眉眼": false,
+      "肤色": false,
+      "体型": true
+    }
+  },
+  {
+    "pair_id": "D02",
+    "a": "01_a",
+    "b": "03_a",
+    "is_same_person": false,
+    "group": "A",
+    "elements": {
+      "发型": false,
+      "脸型": false,
+      "眉眼": false,
+      "肤色": true,
+      "体型": true
+    }
+  },
+  {
+    "pair_id": "D03",
+    "a": "02_a",
+    "b": "03_a",
+    "is_same_person": false,
+    "group": "A",
+    "elements": {
+      "发型": false,
+      "脸型": false,
+      "眉眼": false,
+      "肤色": false,
+      "体型": true
+    }
+  },
+  {
+    "pair_id": "D04",
+    "a": "04_a",
+    "b": "05_a",
+    "is_same_person": false,
+    "group": "B",
+    "elements": {
+      "发型": false,
+      "脸型": false,
+      "眉眼": false,
+      "肤色": false,
+      "体型": false
+    }
+  },
+  {
+    "pair_id": "D05",
+    "a": "04_a",
+    "b": "06_a",
+    "is_same_person": false,
+    "group": "B",
+    "elements": {
+      "发型": false,
+      "脸型": false,
+      "眉眼": false,
+      "肤色": false,
+      "体型": false
+    }
+  },
+  {
+    "pair_id": "D06",
+    "a": "05_a",
+    "b": "06_a",
+    "is_same_person": false,
+    "group": "B",
+    "elements": {
+      "发型": false,
+      "脸型": true,
+      "眉眼": false,
+      "肤色": true,
+      "体型": true
+    }
+  },
+  {
+    "pair_id": "D07",
+    "a": "07_a",
+    "b": "08_a",
+    "is_same_person": false,
+    "group": "C",
+    "elements": {
+      "发型": false,
+      "脸型": true,
+      "眉眼": false,
+      "肤色": false,
+      "体型": false
+    }
+  },
+  {
+    "pair_id": "D08",
+    "a": "07_a",
+    "b": "09_a",
+    "is_same_person": false,
+    "group": "C",
+    "elements": {
+      "发型": false,
+      "脸型": false,
+      "眉眼": false,
+      "肤色": true,
+      "体型": true
+    }
+  },
+  {
+    "pair_id": "D09",
+    "a": "08_a",
+    "b": "09_a",
+    "is_same_person": false,
+    "group": "C",
+    "elements": {
+      "发型": false,
+      "脸型": false,
+      "眉眼": false,
+      "肤色": false,
+      "体型": false
+    }
+  },
+  {
+    "pair_id": "D10",
+    "a": "10_a",
+    "b": "11_a",
+    "is_same_person": false,
+    "group": "D",
+    "elements": {
+      "发型": true,
+      "脸型": false,
+      "眉眼": false,
+      "肤色": false,
+      "体型": false
+    }
+  },
+  {
+    "pair_id": "D11",
+    "a": "10_a",
+    "b": "12_a",
+    "is_same_person": false,
+    "group": "D",
+    "elements": {
+      "发型": false,
+      "脸型": false,
+      "眉眼": false,
+      "肤色": true,
+      "体型": false
+    }
+  },
+  {
+    "pair_id": "D12",
+    "a": "11_a",
+    "b": "12_a",
+    "is_same_person": false,
+    "group": "D",
+    "elements": {
+      "发型": true,
+      "脸型": false,
+      "眉眼": true,
+      "肤色": false,
+      "体型": false
+    }
+  },
+  {
+    "pair_id": "D13",
+    "a": "13_a",
+    "b": "14_a",
+    "is_same_person": false,
+    "group": "E",
+    "elements": {
+      "发型": false,
+      "脸型": true,
+      "眉眼": true,
+      "肤色": true,
+      "体型": true
+    }
+  },
+  {
+    "pair_id": "D14",
+    "a": "13_a",
+    "b": "15_a",
+    "is_same_person": false,
+    "group": "E",
+    "elements": {
+      "发型": false,
+      "脸型": true,
+      "眉眼": true,
+      "肤色": true,
+      "体型": true
+    }
+  },
+  {
+    "pair_id": "D15",
+    "a": "14_a",
+    "b": "15_a",
+    "is_same_person": false,
+    "group": "E",
+    "elements": {
+      "发型": false,
+      "脸型": true,
+      "眉眼": true,
+      "肤色": true,
+      "体型": true
+    }
+  }
+]

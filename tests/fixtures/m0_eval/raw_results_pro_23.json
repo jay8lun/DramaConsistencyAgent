@@ -1,0 +1,1336 @@
+[
+  {
+    "pair_id": "D01",
+    "reference": "01_a.png",
+    "image": "02_a.png",
+    "score": 20,
+    "checks": [
+      {
+        "element": "发型",
+        "matched": false,
+        "expected": "黑色齐肩直发，额前覆有轻薄齐刘海",
+        "actual": "红棕色高扎马尾，额前有细碎短刘海"
+      },
+      {
+        "element": "脸型",
+        "matched": false,
+        "expected": "轮廓流畅的鹅蛋脸，下巴稍尖，面部线条利落",
+        "actual": "轮廓圆润的鹅蛋脸，苹果肌饱满，下巴偏圆钝"
+      },
+      {
+        "element": "眉眼",
+        "matched": false,
+        "expected": "平直自然眉，无明显眉峰；眼型为偏修长的杏眼，眼距适中",
+        "actual": "带柔和弧度的自然眉，有平缓眉峰；眼型为偏圆的杏眼，眼距适中"
+      },
+      {
+        "element": "肤色",
+        "matched": false,
+        "expected": "冷调浅白皙肤色，面颈肤色均匀一致，无明显腮红",
+        "actual": "暖调浅白皙肤色，脸颊带有明显粉调腮红，面颈肤色一致"
+      },
+      {
+        "element": "体型",
+        "matched": false,
+        "expected": "肩宽适中，肩线平直挺括，身形比例匀称修长",
+        "actual": "肩宽偏窄，肩线柔和圆润，身形比例偏娇俏"
+      }
+    ],
+    "diff": "发型不一致：参考图是黑色齐肩直发搭配轻薄齐刘海，待判画面是红棕色高扎马尾搭配细碎短刘海",
+    "model": "doubao-seed-2-1-pro-260628",
+    "judge_version": "m0-judge-v1",
+    "missing_elements": [],
+    "usage": {
+      "prompt_tokens": 3213,
+      "completion_tokens": 6784,
+      "total_tokens": 9997
+    },
+    "payload_bytes": 9111197,
+    "reference_size": [
+      1440,
+      2560
+    ],
+    "image_size": [
+      1440,
+      2560
+    ],
+    "swapped": false,
+    "thinking": true
+  },
+  {
+    "pair_id": "D03",
+    "reference": "02_a.png",
+    "image": "03_a.png",
+    "score": 15,
+    "checks": [
+      {
+        "element": "发型",
+        "matched": false,
+        "expected": "红棕色高马尾，黑色发圈束于头顶后侧，额前有细碎轻薄刘海，马尾垂于脑后，两颊有散落碎发",
+        "actual": "深棕色丸子盘发，头发在头顶盘成圆发髻，额前头发梳拢，两颊留少量细长碎发，无垂坠马尾"
+      },
+      {
+        "element": "脸型",
+        "matched": false,
+        "expected": "圆润短鹅蛋脸，脸颊苹果肌饱满，面部线条柔和，下巴圆钝",
+        "actual": "窄长鹅蛋脸，脸颊平整，面部线条利落，下巴偏尖"
+      },
+      {
+        "element": "眉眼",
+        "matched": false,
+        "expected": "无明显眉峰的平缓粗弯眉，偏圆的杏眼，眼尾自然微垂，眼距适中，眼神柔和带笑意",
+        "actual": "带清晰眉峰的细长直眉，偏细长的眼型，眼尾微上挑，眼距适中偏近，眼神平静"
+      },
+      {
+        "element": "肤色",
+        "matched": false,
+        "expected": "暖调粉白肤色，面颈肤色均匀一致，脸颊带有明显粉润红晕",
+        "actual": "冷调瓷白肤色，面颈肤色均匀一致，脸颊无明显粉润红晕"
+      },
+      {
+        "element": "体型",
+        "matched": false,
+        "expected": "肩宽偏窄，肩线圆润柔和，颈部长度适中偏短，身形娇柔",
+        "actual": "肩宽偏宽，肩线平挺利落，颈部修长，身形干练"
+      }
+    ],
+    "diff": "整体外观形象不一致：参考图是扎红棕色高马尾、脸型圆润、暖调粉肤的娇柔少女形象，待判画面是盘深棕色丸子头、脸型窄长、冷调白皮的干练成熟女性形象",
+    "model": "doubao-seed-2-1-pro-260628",
+    "judge_version": "m0-judge-v1",
+    "missing_elements": [],
+    "usage": {
+      "prompt_tokens": 3213,
+      "completion_tokens": 7395,
+      "total_tokens": 10608
+    },
+    "payload_bytes": 8483553,
+    "reference_size": [
+      1440,
+      2560
+    ],
+    "image_size": [
+      1440,
+      2560
+    ],
+    "swapped": false,
+    "thinking": true
+  },
+  {
+    "pair_id": "D04",
+    "reference": "04_a.png",
+    "image": "05_a.png",
+    "score": 5,
+    "checks": [
+      {
+        "element": "发型",
+        "matched": false,
+        "expected": "黑色极短寸头，发丝短而直立紧贴头皮，长度约1厘米，发型整齐",
+        "actual": "黑色侧分后梳背头，发丝较长，向后梳理成型，发型蓬松，长度远大于寸头"
+      },
+      {
+        "element": "脸型",
+        "matched": false,
+        "expected": "方正宽脸，下颌线宽阔硬朗，下巴偏方圆，面部轮廓棱角明显",
+        "actual": "窄长鹅蛋脸，下颌线流畅收窄，下巴偏尖，面部轮廓修长柔和"
+      },
+      {
+        "element": "眉眼",
+        "matched": false,
+        "expected": "浓黑粗短剑眉，无眼镜，棕色瞳孔，眼型偏狭长，上眼睑偏厚，眼距适中",
+        "actual": "修长黑色眉毛，佩戴细金属方框眼镜，棕色瞳孔，眼型偏圆润偏大，眼距适中"
+      },
+      {
+        "element": "肤色",
+        "matched": false,
+        "expected": "健康小麦色（深黄棕色），面颈部肤色一致，带有自然皮肤纹理与轻微色素沉着",
+        "actual": "白皙浅米色，面颈部肤色一致，皮肤光滑细腻无明显纹理"
+      },
+      {
+        "element": "体型",
+        "matched": false,
+        "expected": "颈部粗壮厚实，肩线偏宽，身形结实健壮",
+        "actual": "颈部细长，肩宽偏窄，身形修长瘦削"
+      }
+    ],
+    "diff": "发型不一致：参考图是黑色极短寸头，待判画面是黑色侧分后梳背头",
+    "model": "doubao-seed-2-1-pro-260628",
+    "judge_version": "m0-judge-v1",
+    "missing_elements": [],
+    "usage": {
+      "prompt_tokens": 3213,
+      "completion_tokens": 6574,
+      "total_tokens": 9787
+    },
+    "payload_bytes": 8378457,
+    "reference_size": [
+      1440,
+      2560
+    ],
+    "image_size": [
+      1440,
+      2560
+    ],
+    "swapped": false,
+    "thinking": true
+  },
+  {
+    "pair_id": "D05",
+    "reference": "04_a.png",
+    "image": "06_a.png",
+    "score": 5,
+    "checks": [
+      {
+        "element": "发型",
+        "matched": false,
+        "expected": "黑色短寸头，发丝短而紧贴头皮，无刘海，完整露出额头",
+        "actual": "黑色蓬松中长发，带有长碎刘海遮挡部分额头，发尾长度到达颈侧"
+      },
+      {
+        "element": "脸型",
+        "matched": false,
+        "expected": "宽下颌方正国字脸，下巴宽平，面部轮廓硬朗偏宽",
+        "actual": "尖下颌窄长V脸，下巴尖窄，面部轮廓柔和偏瘦窄"
+      },
+      {
+        "element": "眉眼",
+        "matched": false,
+        "expected": "浓黑粗直眉，眉部完全露出，棕色瞳孔正视前方，眼距适中",
+        "actual": "细浅平眉，眉部部分被刘海遮挡，棕色瞳孔视线向下，眼距偏窄"
+      },
+      {
+        "element": "肤色",
+        "matched": false,
+        "expected": "偏深的小麦色健康肤色，面颈部肤色一致，带有自然皮肤纹理与胡茬痕迹",
+        "actual": "偏浅的白皙肤色，面颈部肤色一致，皮肤光滑无胡茬痕迹"
+      },
+      {
+        "element": "体型",
+        "matched": false,
+        "expected": "颈部粗壮，肩宽厚实，身形健壮",
+        "actual": "颈部纤细，肩宽偏窄，身形清瘦"
+      }
+    ],
+    "diff": "核心人物形象不一致：参考图是留黑色短寸、小麦色肤色、方正宽脸带胡茬的健壮男性，待判画面是留黑色蓬松中长发、白皙肤色、尖窄瘦脸无胡茬的清瘦男性",
+    "model": "doubao-seed-2-1-pro-260628",
+    "judge_version": "m0-judge-v1",
+    "missing_elements": [],
+    "usage": {
+      "prompt_tokens": 3213,
+      "completion_tokens": 5379,
+      "total_tokens": 8592
+    },
+    "payload_bytes": 9104557,
+    "reference_size": [
+      1440,
+      2560
+    ],
+    "image_size": [
+      1440,
+      2560
+    ],
+    "swapped": false,
+    "thinking": true
+  },
+  {
+    "pair_id": "D06",
+    "reference": "05_a.png",
+    "image": "06_a.png",
+    "score": 8,
+    "checks": [
+      {
+        "element": "发型",
+        "matched": false,
+        "expected": "黑色服帖后梳短发，无刘海，发丝整齐光滑，发长至耳际，露出完整额头",
+        "actual": "黑色蓬松凌乱中长发，有细碎刘海遮挡额头，发丝有毛流感，发长至颈侧"
+      },
+      {
+        "element": "脸型",
+        "matched": false,
+        "expected": "轮廓流畅的长形脸，颧骨宽度适中，下颌线条清晰，下巴圆润饱满",
+        "actual": "轮廓瘦削的窄长脸，下颌线条收窄，下巴尖细"
+      },
+      {
+        "element": "眉眼",
+        "matched": false,
+        "expected": "粗黑平直带轻微眉峰的剑眉，眼型偏长圆，眼距适中",
+        "actual": "细黑平缓无明显眉峰的眉毛（部分被刘海遮挡），眼型偏狭长，眼距适中"
+      },
+      {
+        "element": "肤色",
+        "matched": false,
+        "expected": "浅暖调自然肤色，面部与颈部肤色均匀一致",
+        "actual": "冷调瓷白肤色，面部与颈部肤色均匀一致，肤色更白皙"
+      },
+      {
+        "element": "体型",
+        "matched": false,
+        "expected": "肩宽较宽，肩颈比例适中，身形挺拔偏健硕",
+        "actual": "肩宽偏窄，颈部纤细，身形偏清瘦"
+      }
+    ],
+    "diff": "发型不一致：参考图是黑色服帖后梳无刘海短发（发长至耳际），待判画面是黑色蓬松带碎刘海的中长发（发长至颈侧）",
+    "model": "doubao-seed-2-1-pro-260628",
+    "judge_version": "m0-judge-v1",
+    "missing_elements": [],
+    "usage": {
+      "prompt_tokens": 3213,
+      "completion_tokens": 8372,
+      "total_tokens": 11585
+    },
+    "payload_bytes": 7521229,
+    "reference_size": [
+      1440,
+      2560
+    ],
+    "image_size": [
+      1440,
+      2560
+    ],
+    "swapped": false,
+    "thinking": true
+  },
+  {
+    "pair_id": "D10",
+    "reference": "10_a.png",
+    "image": "11_a.png",
+    "score": 8,
+    "checks": [
+      {
+        "element": "发型",
+        "matched": false,
+        "expected": "灰白色短碎发，发丝蓬松毛躁，长度较短至耳部中段，完整露出双耳",
+        "actual": "灰黑相间的后梳长发，发丝服帖整齐，长度较长至耳下颈侧，仅露出耳垂部分"
+      },
+      {
+        "element": "脸型",
+        "matched": false,
+        "expected": "偏宽的方圆脸，下颌线条圆润，颧骨较宽，脸颊饱满",
+        "actual": "偏瘦长的长方脸，下颌线条窄而清晰，颧骨平缓，脸颊瘦削"
+      },
+      {
+        "element": "眉眼",
+        "matched": false,
+        "expected": "浓黑色粗眉，眉形浓密宽厚，眼型偏圆润，下眼睑有明显眼袋",
+        "actual": "灰黑色细眉，眉形淡而窄，眼型偏细长，下眼睑眼袋不明显"
+      },
+      {
+        "element": "肤色",
+        "matched": false,
+        "expected": "偏深的小麦色，面中脸颊、鼻部有明显泛红，面颈部肤色偏深",
+        "actual": "偏浅的暖黄肤色，肤色均匀，面中无明显泛红，面颈部肤色偏浅"
+      },
+      {
+        "element": "体型",
+        "matched": false,
+        "expected": "颈部粗短，肩宽较宽，身形壮实",
+        "actual": "颈部细长，肩宽较窄，身形清瘦"
+      }
+    ],
+    "diff": "核心外观特征不一致：参考图是留蓬松灰白色短碎发、宽方圆脸、深小麦色肤色、浓黑粗眉、身形壮实的老年男性，待判画面是留服帖后梳灰黑长发、瘦长方脸、浅暖黄肤色、灰黑细眉、身形清瘦的老年男性",
+    "model": "doubao-seed-2-1-pro-260628",
+    "judge_version": "m0-judge-v1",
+    "missing_elements": [],
+    "usage": {
+      "prompt_tokens": 3213,
+      "completion_tokens": 7981,
+      "total_tokens": 11194
+    },
+    "payload_bytes": 8868297,
+    "reference_size": [
+      1440,
+      2560
+    ],
+    "image_size": [
+      1440,
+      2560
+    ],
+    "swapped": false,
+    "thinking": true
+  },
+  {
+    "pair_id": "D11",
+    "reference": "10_a.png",
+    "image": "12_a.png",
+    "score": 8,
+    "checks": [
+      {
+        "element": "发型",
+        "matched": false,
+        "expected": "银灰色短直发，发丝自然蓬松无刻意造型，长度及耳中位置，整体以灰白色为主",
+        "actual": "黑灰夹杂短发，发丝向后梳理成蓬松背头造型，黑色占比较高，长度略长"
+      },
+      {
+        "element": "脸型",
+        "matched": false,
+        "expected": "瘦长型面部轮廓，两颊瘦削，下颌线清晰硬朗，脸盘偏窄",
+        "actual": "宽圆型面部轮廓，两颊饱满丰腴，下颌线圆润，脸盘宽大偏圆"
+      },
+      {
+        "element": "眉眼",
+        "matched": false,
+        "expected": "浓黑色平直粗眉，眉峰平缓；眼型细长，眼神严肃，眼周有自然衰老纹路",
+        "actual": "浓黑色粗眉，眉峰明显上挑；眼型偏圆，因笑容眼尾弯起，眼周有挤压形成的笑纹，眼神带笑意"
+      },
+      {
+        "element": "肤色",
+        "matched": false,
+        "expected": "面颈部为偏深的小麦色，肤色偏暗，面部分布日晒斑点，颧骨处轻微泛红",
+        "actual": "面颈部为偏浅的暖黄肤色，整体肤色更白皙，两颊大面积明显泛红，斑点浅淡"
+      },
+      {
+        "element": "体型",
+        "matched": false,
+        "expected": "颈部修长，筋络凸起明显，肩宽适中，整体身形偏清瘦",
+        "actual": "颈部粗短饱满，无明显凸起筋络，整体身形偏胖壮"
+      }
+    ],
+    "diff": "核心外观特征不一致：参考图是瘦长脸、全灰白色自然短直发、深小麦色肤色、清瘦身形的老年男性，待判画面是宽圆脸、黑灰夹杂背头短发、浅暖黄肤色、胖壮身形的老年男性，二者明显不是同一人",
+    "model": "doubao-seed-2-1-pro-260628",
+    "judge_version": "m0-judge-v1",
+    "missing_elements": [],
+    "usage": {
+      "prompt_tokens": 3213,
+      "completion_tokens": 6057,
+      "total_tokens": 9270
+    },
+    "payload_bytes": 9085013,
+    "reference_size": [
+      1440,
+      2560
+    ],
+    "image_size": [
+      1440,
+      2560
+    ],
+    "swapped": false,
+    "thinking": true
+  },
+  {
+    "pair_id": "D12",
+    "reference": "11_a.png",
+    "image": "12_a.png",
+    "score": 6,
+    "checks": [
+      {
+        "element": "发型",
+        "matched": false,
+        "expected": "黑灰夹杂发色，前额处发丝灰白色占比高，发丝服帖向后梳拢，无刘海，发长至耳下颈侧，发型整齐顺滑",
+        "actual": "黑灰夹杂发色，前额处发丝灰白色占比高，发丝蓬松凌乱向上，无刘海，发长至耳廓位置，发型蓬松厚重"
+      },
+      {
+        "element": "脸型",
+        "matched": false,
+        "expected": "长方脸，面部轮廓清瘦，下颌线窄而流畅，两颊无赘肉，脸部长宽比偏大",
+        "actual": "方圆脸，面部轮廓饱满丰腴，下颌线宽而圆钝，两颊赘肉明显，脸部长宽比偏小"
+      },
+      {
+        "element": "眉眼",
+        "matched": false,
+        "expected": "灰黑色细长平眉，无明显眉峰；眼型细长，眼距适中，正视前方时眼周有自然鱼尾纹",
+        "actual": "浓黑色粗宽眉，有明显眉峰；眼型偏圆（因笑容弯起），眼距适中，微笑时眼周褶皱挤压明显"
+      },
+      {
+        "element": "肤色",
+        "matched": false,
+        "expected": "面颈部为浅黄偏白肤色，肤色均匀，面部散在浅褐色小斑点，两颊无红晕",
+        "actual": "面颈部为暖黄偏红肤色，两颊有明显片状红晕，肤色整体偏红润"
+      },
+      {
+        "element": "体型",
+        "matched": false,
+        "expected": "身形清瘦单薄，颈部修长，颈部皮肤纹理明显，肩宽适中偏窄",
+        "actual": "身形胖壮厚实，颈部短粗圆润，肩宽偏宽"
+      }
+    ],
+    "diff": "脸型与体型不一致：参考图是清瘦长方脸、颈部修长的偏瘦身形，待判画面是丰腴方圆脸、颈部短粗的胖壮身形",
+    "model": "doubao-seed-2-1-pro-260628",
+    "judge_version": "m0-judge-v1",
+    "missing_elements": [],
+    "usage": {
+      "prompt_tokens": 3213,
+      "completion_tokens": 7860,
+      "total_tokens": 11073
+    },
+    "payload_bytes": 9414485,
+    "reference_size": [
+      1440,
+      2560
+    ],
+    "image_size": [
+      1440,
+      2560
+    ],
+    "swapped": false,
+    "thinking": true
+  },
+  {
+    "pair_id": "S01",
+    "reference": "01_a.png",
+    "image": "01_b.png",
+    "score": 95,
+    "checks": [
+      {
+        "element": "发型",
+        "matched": true,
+        "expected": "黑色顺直齐肩中长发，带有轻薄碎齐刘海，发丝垂顺",
+        "actual": "黑色顺直齐肩中长发，带有轻薄碎齐刘海，发丝垂顺，为四分之三侧面视角呈现效果"
+      },
+      {
+        "element": "脸型",
+        "matched": true,
+        "expected": "面部轮廓流畅柔和，为鹅蛋脸，下巴圆润",
+        "actual": "面部轮廓流畅柔和，下颌线条顺滑，下巴圆润，为四分之三侧面视角呈现效果"
+      },
+      {
+        "element": "眉眼",
+        "matched": true,
+        "expected": "眉形为带轻微弧度的自然平直棕黑色眉，眼型为杏眼，棕色瞳孔，眼距适中",
+        "actual": "眉形为带轻微弧度的自然平直棕黑色眉，眼型为杏眼，棕色瞳孔，因侧身透视存在近大远小的视觉效果"
+      },
+      {
+        "element": "肤色",
+        "matched": true,
+        "expected": "面部与颈部为均匀暖调白皙肤色，带有自然皮肤光泽",
+        "actual": "面部与颈部为均匀暖调白皙肤色，带有自然皮肤光泽"
+      },
+      {
+        "element": "体型",
+        "matched": true,
+        "expected": "肩线平直适中，身形纤细匀称，西装肩部贴合身形",
+        "actual": "肩线平直适中，身形纤细匀称，西装肩部贴合身形，为四分之三侧面视角呈现效果"
+      }
+    ],
+    "diff": "",
+    "model": "doubao-seed-2-1-pro-260628",
+    "judge_version": "m0-judge-v1",
+    "missing_elements": [],
+    "usage": {
+      "prompt_tokens": 3213,
+      "completion_tokens": 5718,
+      "total_tokens": 8931
+    },
+    "payload_bytes": 9378533,
+    "reference_size": [
+      1440,
+      2560
+    ],
+    "image_size": [
+      1440,
+      2560
+    ],
+    "swapped": false,
+    "thinking": true
+  },
+  {
+    "pair_id": "S02",
+    "reference": "02_a.png",
+    "image": "02_b.png",
+    "score": 95,
+    "checks": [
+      {
+        "element": "发型",
+        "matched": true,
+        "expected": "红棕色顺直高马尾，以黑色发圈束于头顶后侧，额前分布轻薄碎刘海，脸颊两侧有垂落的细碎发丝",
+        "actual": "红棕色顺直高马尾，以黑色发圈束于头顶后侧，额前分布轻薄碎刘海，脸颊两侧有垂落的细碎发丝"
+      },
+      {
+        "element": "脸型",
+        "matched": true,
+        "expected": "面部轮廓流畅柔和，为饱满鹅蛋脸，颧骨平缓，下巴圆润",
+        "actual": "面部轮廓流畅柔和，为饱满鹅蛋脸，颧骨平缓，下巴圆润"
+      },
+      {
+        "element": "眉眼",
+        "matched": true,
+        "expected": "棕色自然平眉，眉峰不明显，眉尾逐渐收细；棕色杏眼，双眼皮，睫毛自然纤长，眼距适中",
+        "actual": "棕色自然平眉，眉峰不明显，眉尾逐渐收细；棕色杏眼，双眼皮，睫毛自然纤长，眼距适中"
+      },
+      {
+        "element": "肤色",
+        "matched": true,
+        "expected": "暖调浅肤色，苹果肌位置带有淡粉色红晕，面部与颈部肤色均匀一致",
+        "actual": "暖调浅肤色，苹果肌位置带有淡粉色红晕，面部与颈部肤色均匀一致"
+      },
+      {
+        "element": "体型",
+        "matched": true,
+        "expected": "颈部修长，锁骨线条清晰，肩颈衔接流畅（参考图为近景，肩部被画面边缘裁切，仅显示肩颈及上胸部分）",
+        "actual": "颈部修长，锁骨线条清晰，肩颈衔接流畅，肩宽适中，手臂线条匀称，身形比例协调（待判画面为中近景，显示肩颈、手臂及上半身部分）"
+      }
+    ],
+    "diff": "",
+    "model": "doubao-seed-2-1-pro-260628",
+    "judge_version": "m0-judge-v1",
+    "missing_elements": [],
+    "usage": {
+      "prompt_tokens": 3213,
+      "completion_tokens": 6532,
+      "total_tokens": 9745
+    },
+    "payload_bytes": 9133961,
+    "reference_size": [
+      1440,
+      2560
+    ],
+    "image_size": [
+      1440,
+      2560
+    ],
+    "swapped": false,
+    "thinking": true
+  },
+  {
+    "pair_id": "S03",
+    "reference": "03_a.png",
+    "image": "03_b.png",
+    "score": 95,
+    "checks": [
+      {
+        "element": "发型",
+        "matched": true,
+        "expected": "深棕色头发在头顶盘成圆润高丸子头，发丝梳理整齐，两侧耳前各垂有一缕细长碎发",
+        "actual": "深棕色头发在头顶盘成圆润高丸子头，发丝梳理整齐，两侧耳前各垂有一缕细长碎发"
+      },
+      {
+        "element": "脸型",
+        "matched": true,
+        "expected": "轮廓流畅的修长鹅蛋脸，下颌线条柔和，下巴尖圆适中",
+        "actual": "轮廓流畅的修长鹅蛋脸，下颌线条柔和，下巴尖圆适中"
+      },
+      {
+        "element": "眉眼",
+        "matched": true,
+        "expected": "眉形为平直带微挑弧度的深棕色浓眉，眼型为偏长杏眼，眼距适中，棕色瞳孔，眼尾有自然眼线拉长",
+        "actual": "眉形为平直带微挑弧度的深棕色浓眉，眼型为偏长杏眼，眼距适中，棕色瞳孔，眼尾有自然眼线拉长"
+      },
+      {
+        "element": "肤色",
+        "matched": true,
+        "expected": "面部与颈部为均匀的浅自然肤色，冷白光照射下色调偏冷",
+        "actual": "面部与颈部为均匀的浅自然肤色，暖光照射下色调偏暖"
+      },
+      {
+        "element": "体型",
+        "matched": true,
+        "expected": "肩宽适中，颈部修长，上半身比例匀称",
+        "actual": "肩宽适中，颈部修长，上半身比例匀称"
+      }
+    ],
+    "diff": "",
+    "model": "doubao-seed-2-1-pro-260628",
+    "judge_version": "m0-judge-v1",
+    "missing_elements": [],
+    "usage": {
+      "prompt_tokens": 3213,
+      "completion_tokens": 4535,
+      "total_tokens": 7748
+    },
+    "payload_bytes": 7881569,
+    "reference_size": [
+      1440,
+      2560
+    ],
+    "image_size": [
+      1440,
+      2560
+    ],
+    "swapped": false,
+    "thinking": true
+  },
+  {
+    "pair_id": "S04",
+    "reference": "04_a.png",
+    "image": "04_b.png",
+    "score": 95,
+    "checks": [
+      {
+        "element": "发型",
+        "matched": true,
+        "expected": "纯黑色短寸板头，发丝短而紧贴头皮，长度约数毫米，发际线整齐",
+        "actual": "纯黑色短寸板头，发丝短而紧贴头皮，长度约数毫米，发际线整齐"
+      },
+      {
+        "element": "脸型",
+        "matched": true,
+        "expected": "方正硬朗的国字脸，下颌轮廓清晰，下巴方圆，颧骨平缓",
+        "actual": "方正硬朗的国字脸，下颌轮廓清晰，下巴方圆，颧骨平缓，因四分之三侧面角度存在正常透视变化"
+      },
+      {
+        "element": "眉眼",
+        "matched": true,
+        "expected": "浓黑粗剑眉，眉峰明显；内双狭长眼型，棕色瞳孔，眼距适中",
+        "actual": "浓黑粗剑眉，眉峰明显；内双狭长眼型，棕色瞳孔，因侧面角度存在近大远小的正常透视变化"
+      },
+      {
+        "element": "肤色",
+        "matched": true,
+        "expected": "暖调黄棕小麦色肤色，面部与颈部肤色一致，唇周及下巴分布短胡茬",
+        "actual": "暖调黄棕小麦色肤色，面部与颈部肤色一致，唇周及下巴分布短胡茬，因侧光皮肤纹理更明显"
+      },
+      {
+        "element": "体型",
+        "matched": true,
+        "expected": "颈部粗壮，为健壮男性身形，身着灰色圆领T恤",
+        "actual": "颈部粗壮，为健壮男性身形，身着灰色圆领T恤，因侧身角度露出肩部肌肉，身形比例协调"
+      }
+    ],
+    "diff": "",
+    "model": "doubao-seed-2-1-pro-260628",
+    "judge_version": "m0-judge-v1",
+    "missing_elements": [],
+    "usage": {
+      "prompt_tokens": 3213,
+      "completion_tokens": 6631,
+      "total_tokens": 9844
+    },
+    "payload_bytes": 9273329,
+    "reference_size": [
+      1440,
+      2560
+    ],
+    "image_size": [
+      1440,
+      2560
+    ],
+    "swapped": false,
+    "thinking": true
+  },
+  {
+    "pair_id": "S05",
+    "reference": "05_a.png",
+    "image": "05_b.png",
+    "score": 98,
+    "checks": [
+      {
+        "element": "发型",
+        "matched": true,
+        "expected": "黑色顺滑后梳侧分短发，发丝整齐有光泽，长度及耳",
+        "actual": "黑色顺滑后梳侧分短发，发丝整齐有光泽，长度及耳"
+      },
+      {
+        "element": "脸型",
+        "matched": true,
+        "expected": "面部轮廓修长流畅，下颌线清晰，下巴偏尖窄的长形脸",
+        "actual": "面部轮廓修长流畅，下颌线清晰，下巴偏尖窄的长形脸"
+      },
+      {
+        "element": "眉眼",
+        "matched": true,
+        "expected": "浓黑略上扬的剑眉，狭长杏眼，棕色瞳孔，眼距适中",
+        "actual": "浓黑略上扬的剑眉，狭长杏眼，棕色瞳孔，眼距适中"
+      },
+      {
+        "element": "肤色",
+        "matched": true,
+        "expected": "面部与颈部为均匀浅暖调肤色，无明显色差",
+        "actual": "面部与颈部为均匀浅暖调肤色，无明显色差"
+      },
+      {
+        "element": "体型",
+        "matched": true,
+        "expected": "肩宽适中，头肩比例协调，身形挺拔修长",
+        "actual": "肩宽适中，头肩比例协调，身形挺拔修长"
+      }
+    ],
+    "diff": "",
+    "model": "doubao-seed-2-1-pro-260628",
+    "judge_version": "m0-judge-v1",
+    "missing_elements": [],
+    "usage": {
+      "prompt_tokens": 3213,
+      "completion_tokens": 5676,
+      "total_tokens": 8889
+    },
+    "payload_bytes": 6974361,
+    "reference_size": [
+      1440,
+      2560
+    ],
+    "image_size": [
+      1440,
+      2560
+    ],
+    "swapped": false,
+    "thinking": true
+  },
+  {
+    "pair_id": "S06",
+    "reference": "06_a.png",
+    "image": "06_b.png",
+    "score": 95,
+    "checks": [
+      {
+        "element": "发型",
+        "matched": true,
+        "expected": "黑色蓬松层次碎发，长度至颈侧，额前为不规则碎刘海，发尾细碎自然垂落，整体发色纯黑",
+        "actual": "黑色蓬松层次碎发，长度至颈侧，额前为不规则碎刘海，发尾细碎自然垂落，部分发丝高光呈棕褐色"
+      },
+      {
+        "element": "脸型",
+        "matched": true,
+        "expected": "窄长流畅的瓜子脸，下颌线条柔和，下巴偏尖",
+        "actual": "窄长流畅的瓜子脸，下颌线条柔和，下巴偏尖"
+      },
+      {
+        "element": "眉眼",
+        "matched": true,
+        "expected": "眉形平直细长，眉色偏深；眼型狭长，眼距适中，眼睑微垂，视线向下",
+        "actual": "眉形平直细长，眉色偏深；眼型狭长，眼距适中，眼睑微垂，视线向下"
+      },
+      {
+        "element": "肤色",
+        "matched": true,
+        "expected": "冷调白皙肤色，面部与颈部肤色均匀",
+        "actual": "白皙肤色，面中、鼻梁、颈部带有暖橙调光影"
+      },
+      {
+        "element": "体型",
+        "matched": true,
+        "expected": "肩宽适中，脖颈修长，身形偏瘦，头肩比例协调",
+        "actual": "肩宽适中，脖颈修长，身形偏瘦，头肩比例协调"
+      }
+    ],
+    "diff": "",
+    "model": "doubao-seed-2-1-pro-260628",
+    "judge_version": "m0-judge-v1",
+    "missing_elements": [],
+    "usage": {
+      "prompt_tokens": 3213,
+      "completion_tokens": 6079,
+      "total_tokens": 9292
+    },
+    "payload_bytes": 8128709,
+    "reference_size": [
+      1440,
+      2560
+    ],
+    "image_size": [
+      1440,
+      2560
+    ],
+    "swapped": false,
+    "thinking": true
+  },
+  {
+    "pair_id": "S07",
+    "reference": "07_a.png",
+    "image": "07_b.png",
+    "score": 95,
+    "checks": [
+      {
+        "element": "发型",
+        "matched": true,
+        "expected": "银灰色及下颌长度的蓬松短波浪卷发",
+        "actual": "银灰色及下颌长度的蓬松短波浪卷发"
+      },
+      {
+        "element": "脸型",
+        "matched": true,
+        "expected": "面部轮廓柔和，偏方圆的饱满脸型，下颌线条平缓",
+        "actual": "面部轮廓柔和，偏方圆的饱满脸型，下颌线条平缓"
+      },
+      {
+        "element": "眉眼",
+        "matched": true,
+        "expected": "眉形平缓柔和，棕色杏眼，眼距适中，眼角有自然鱼尾纹，佩戴细银色金属框眼镜",
+        "actual": "眉形平缓柔和，棕色杏眼，眼角有自然鱼尾纹，佩戴细银色金属框眼镜"
+      },
+      {
+        "element": "肤色",
+        "matched": true,
+        "expected": "暖调浅黄肤色，面部与颈部肤色一致，面部散在淡褐色小斑点",
+        "actual": "暖调浅黄肤色，面部与颈部肤色一致，面部散在淡褐色小斑点"
+      },
+      {
+        "element": "体型",
+        "matched": true,
+        "expected": "肩宽适中，身形匀称，符合老年女性身形比例",
+        "actual": "肩宽适中，身形匀称，符合老年女性身形比例"
+      }
+    ],
+    "diff": "",
+    "model": "doubao-seed-2-1-pro-260628",
+    "judge_version": "m0-judge-v1",
+    "missing_elements": [],
+    "usage": {
+      "prompt_tokens": 3213,
+      "completion_tokens": 5527,
+      "total_tokens": 8740
+    },
+    "payload_bytes": 7994513,
+    "reference_size": [
+      1440,
+      2560
+    ],
+    "image_size": [
+      1440,
+      2560
+    ],
+    "swapped": false,
+    "thinking": true
+  },
+  {
+    "pair_id": "S08",
+    "reference": "08_a.png",
+    "image": "08_b.png",
+    "score": 95,
+    "checks": [
+      {
+        "element": "发型",
+        "matched": true,
+        "expected": "红棕色及肩蓬松大波浪卷发，侧分，发卷自然垂落至肩颈位置",
+        "actual": "红棕色及肩蓬松大波浪卷发，侧分，发卷自然垂落至肩颈位置"
+      },
+      {
+        "element": "脸型",
+        "matched": true,
+        "expected": "面部轮廓柔和流畅，为偏圆润的鹅蛋脸，笑时苹果肌饱满，下颌线条圆润",
+        "actual": "面部轮廓柔和流畅，为偏圆润的鹅蛋脸，笑时苹果肌饱满，下颌线条圆润"
+      },
+      {
+        "element": "眉眼",
+        "matched": true,
+        "expected": "弯眉，棕褐色眉色，杏眼，眼距适中，带有红粉色眼影，睫毛纤长，笑时眼周有自然鱼尾纹",
+        "actual": "弯眉，棕褐色眉色，杏眼，眼距适中，带有红粉色眼影，睫毛纤长，笑时眼周有自然鱼尾纹"
+      },
+      {
+        "element": "肤色",
+        "matched": true,
+        "expected": "面部与颈部为自然暖调浅肤色，肤色均匀，带有自然皮肤纹理",
+        "actual": "面部、颈部与露出的手臂皮肤为自然暖调浅肤色，肤色均匀，带有自然皮肤纹理"
+      },
+      {
+        "element": "体型",
+        "matched": true,
+        "expected": "肩宽适中，上身身形匀称，上臂线条圆润",
+        "actual": "肩宽适中，整体身形匀称，上臂线条圆润，腰臀比例协调"
+      }
+    ],
+    "diff": "",
+    "model": "doubao-seed-2-1-pro-260628",
+    "judge_version": "m0-judge-v1",
+    "missing_elements": [],
+    "usage": {
+      "prompt_tokens": 3213,
+      "completion_tokens": 4333,
+      "total_tokens": 7546
+    },
+    "payload_bytes": 8203801,
+    "reference_size": [
+      1440,
+      2560
+    ],
+    "image_size": [
+      1440,
+      2560
+    ],
+    "swapped": false,
+    "thinking": true
+  },
+  {
+    "pair_id": "S09",
+    "reference": "09_a.png",
+    "image": "09_b.png",
+    "score": 95,
+    "checks": [
+      {
+        "element": "发型",
+        "matched": true,
+        "expected": "黑色侧分齐下颌顺直短发，人物左侧耳后别着银色小型发夹，发丝顺滑有自然光泽",
+        "actual": "黑色侧分齐下颌顺直短发，人物左侧耳后别着银色小型发夹，发丝顺滑有自然光泽"
+      },
+      {
+        "element": "脸型",
+        "matched": true,
+        "expected": "柔和方圆脸，下颌线条平缓流畅，颧骨适中，面部分布符合年龄的自然纹路",
+        "actual": "侧面视角下面部轮廓柔和，下颌线条平缓流畅，颧骨高度适中，面部自然纹路位置与参考一致"
+      },
+      {
+        "element": "眉眼",
+        "matched": true,
+        "expected": "深棕黑色偏粗眉形，眉身平直、眉尾自然微挑；棕色杏眼，眼距适中，眼周有自然鱼尾纹",
+        "actual": "侧面视角下可见眉形为深棕黑色偏粗眉、眉尾自然微挑，棕色杏眼，眼周自然鱼尾纹形态与参考一致"
+      },
+      {
+        "element": "肤色",
+        "matched": true,
+        "expected": "自然黄调肤色，面颈部散在浅褐色小雀斑，面颈肤色统一，带有自然皮肤纹理",
+        "actual": "自然黄调肤色，面颈部散在浅褐色小雀斑，面颈肤色统一，带有自然皮肤纹理，仅因侧光照明存在正常明暗差异"
+      },
+      {
+        "element": "体型",
+        "matched": true,
+        "expected": "中年女性匀称身形，肩宽适中，身形比例协调",
+        "actual": "中年女性匀称身形，肩宽适中，身形比例协调"
+      }
+    ],
+    "diff": "",
+    "model": "doubao-seed-2-1-pro-260628",
+    "judge_version": "m0-judge-v1",
+    "missing_elements": [],
+    "usage": {
+      "prompt_tokens": 3213,
+      "completion_tokens": 6187,
+      "total_tokens": 9400
+    },
+    "payload_bytes": 9359021,
+    "reference_size": [
+      1440,
+      2560
+    ],
+    "image_size": [
+      1440,
+      2560
+    ],
+    "swapped": false,
+    "thinking": true
+  },
+  {
+    "pair_id": "S10",
+    "reference": "10_a.png",
+    "image": "10_b.png",
+    "score": 95,
+    "checks": [
+      {
+        "element": "发型",
+        "matched": true,
+        "expected": "短款蓬松碎发，整体为灰白色，长度及耳，发丝略显凌乱",
+        "actual": "短款蓬松碎发，整体为灰白色，长度及耳，发丝略显凌乱"
+      },
+      {
+        "element": "脸型",
+        "matched": true,
+        "expected": "方圆型国字脸，面部轮廓硬朗，颧骨适中，下颌线清晰",
+        "actual": "侧面视角下面部轮廓硬朗，下颌线清晰，骨骼结构与参考一致"
+      },
+      {
+        "element": "眉眼",
+        "matched": true,
+        "expected": "浓黑粗眉，眉形偏平直、眉尾略下垂；眼型偏细长，棕色瞳孔，眼周有明显鱼尾纹和眼袋，眼距适中",
+        "actual": "侧面视角下眉为浓黑粗眉，眼型偏细长，棕色瞳孔，眼周有鱼尾纹和眼袋，特征与参考一致"
+      },
+      {
+        "element": "肤色",
+        "matched": true,
+        "expected": "面颈部为偏红的小麦色，面部散在浅褐色小色斑，颈部肤色与面部一致",
+        "actual": "面颈部为偏红的小麦色，面部散在浅褐色小色斑，颈部肤色与面部一致"
+      },
+      {
+        "element": "体型",
+        "matched": true,
+        "expected": "肩宽适中，身形偏结实，身着深蓝色翻领工装，双肩配有棕色背带",
+        "actual": "肩宽适中，身形偏结实，身着深蓝色翻领工装，配有棕色背带，肩颈比例与参考一致"
+      }
+    ],
+    "diff": "",
+    "model": "doubao-seed-2-1-pro-260628",
+    "judge_version": "m0-judge-v1",
+    "missing_elements": [],
+    "usage": {
+      "prompt_tokens": 3213,
+      "completion_tokens": 2939,
+      "total_tokens": 6152
+    },
+    "payload_bytes": 9205181,
+    "reference_size": [
+      1440,
+      2560
+    ],
+    "image_size": [
+      1440,
+      2560
+    ],
+    "swapped": false,
+    "thinking": true
+  },
+  {
+    "pair_id": "S11",
+    "reference": "11_a.png",
+    "image": "11_b.png",
+    "score": 95,
+    "checks": [
+      {
+        "element": "发型",
+        "matched": true,
+        "expected": "银灰与深灰相间的服帖背头，为中短发长度，发长及耳下，顶部发色偏银白，两侧以深灰发色为主夹杂银白发丝",
+        "actual": "银灰与深灰相间的服帖背头，为中短发长度，发长及耳下，顶部发色偏银白，两侧以深灰发色为主夹杂银白发丝，呈侧面视角效果"
+      },
+      {
+        "element": "脸型",
+        "matched": true,
+        "expected": "偏瘦长的老年男性面部轮廓，颧骨略明显，下颌线条收窄，面部有符合年龄的自然纹路",
+        "actual": "偏瘦长的老年男性面部轮廓，颧骨略明显，下颌线条收窄，面部有符合年龄的自然纹路，呈侧面视角效果"
+      },
+      {
+        "element": "眉眼",
+        "matched": true,
+        "expected": "灰黑色自然长眉，眼型偏细长，眼距适中，眼周有自然鱼尾纹，虹膜为棕褐色",
+        "actual": "灰黑色自然长眉，眼型偏细长，眼周有自然鱼尾纹，虹膜为棕褐色，呈侧面视角效果"
+      },
+      {
+        "element": "肤色",
+        "matched": true,
+        "expected": "自然黄调中老年肤色，面颈部散在分布淡褐色小斑点，肤色均匀",
+        "actual": "自然黄调中老年肤色，面颈部散在分布淡褐色小斑点，肤色均匀"
+      },
+      {
+        "element": "体型",
+        "matched": true,
+        "expected": "肩宽适中，身形偏清瘦，头肩比例协调",
+        "actual": "肩宽适中，身形偏清瘦，头肩比例协调，呈背手姿势、景别稍远的效果"
+      }
+    ],
+    "diff": "",
+    "model": "doubao-seed-2-1-pro-260628",
+    "judge_version": "m0-judge-v1",
+    "missing_elements": [],
+    "usage": {
+      "prompt_tokens": 3213,
+      "completion_tokens": 5605,
+      "total_tokens": 8818
+    },
+    "payload_bytes": 8413713,
+    "reference_size": [
+      1440,
+      2560
+    ],
+    "image_size": [
+      1440,
+      2560
+    ],
+    "swapped": false,
+    "thinking": true
+  },
+  {
+    "pair_id": "S12",
+    "reference": "12_a.png",
+    "image": "12_b.png",
+    "score": 95,
+    "checks": [
+      {
+        "element": "发型",
+        "matched": true,
+        "expected": "黑灰混色短发，发丝蓬松向后梳理，发顶及两侧分布灰白色发丝，发长及耳",
+        "actual": "黑灰混色短发，发丝蓬松向后梳理，发顶及两侧分布灰白色发丝，发长及耳"
+      },
+      {
+        "element": "脸型",
+        "matched": true,
+        "expected": "丰腴圆润的方圆脸，脸颊饱满，下颌线条柔和偏宽",
+        "actual": "丰腴圆润的方圆脸，脸颊饱满，下颌线条柔和偏宽"
+      },
+      {
+        "element": "眉眼",
+        "matched": true,
+        "expected": "浓黑粗眉，眉形略挑，眼型为细长笑眼，棕色瞳孔，眼距适中，笑时眼周有自然鱼尾纹",
+        "actual": "浓黑粗眉，眉形略挑，眼型为细长笑眼，棕色瞳孔，眼距适中，笑时眼周有自然鱼尾纹"
+      },
+      {
+        "element": "肤色",
+        "matched": true,
+        "expected": "暖黄调肤色，两颊泛红分布浅褐色小斑点，面部与颈部肤色均匀一致",
+        "actual": "暖黄调肤色，两颊泛红分布浅褐色小斑点，面部与颈部肤色均匀一致"
+      },
+      {
+        "element": "体型",
+        "matched": true,
+        "expected": "身形胖壮，肩宽较宽，颈部粗短",
+        "actual": "身形胖壮，肩宽较宽，颈部粗短"
+      }
+    ],
+    "diff": "",
+    "model": "doubao-seed-2-1-pro-260628",
+    "judge_version": "m0-judge-v1",
+    "missing_elements": [],
+    "usage": {
+      "prompt_tokens": 3213,
+      "completion_tokens": 3852,
+      "total_tokens": 7065
+    },
+    "payload_bytes": 9753865,
+    "reference_size": [
+      1440,
+      2560
+    ],
+    "image_size": [
+      1440,
+      2560
+    ],
+    "swapped": false,
+    "thinking": true
+  },
+  {
+    "pair_id": "S13",
+    "reference": "13_a.png",
+    "image": "13_b.png",
+    "score": 95,
+    "checks": [
+      {
+        "element": "发型",
+        "matched": true,
+        "expected": "黑色齐刘海顺直长发，在两侧耳朵下方位置用蓝色发圈扎成双马尾，发尾顺直垂至肩下",
+        "actual": "黑色齐刘海顺直长发，在耳下位置用蓝色发圈扎成双马尾，发尾顺直垂至肩下（侧面视角）"
+      },
+      {
+        "element": "脸型",
+        "matched": true,
+        "expected": "面部轮廓饱满柔和，为鹅蛋脸，下巴圆润小巧",
+        "actual": "侧面视角下面部轮廓饱满柔和，下巴圆润小巧，符合鹅蛋脸的侧面特征"
+      },
+      {
+        "element": "眉眼",
+        "matched": true,
+        "expected": "眉毛为棕色平直眉，眼睛是棕色圆杏眼，眼距适中，睫毛纤长",
+        "actual": "侧面视角下可见棕色平直眉，棕色圆杏眼，睫毛纤长"
+      },
+      {
+        "element": "肤色",
+        "matched": true,
+        "expected": "肤色白皙偏粉，面部与颈部肤色均匀一致，脸颊及鼻梁处分布淡雀斑",
+        "actual": "肤色白皙偏粉，面部与颈部肤色均匀一致，可见脸颊处分布淡雀斑"
+      },
+      {
+        "element": "体型",
+        "matched": true,
+        "expected": "少女纤细身形，肩宽适中，腰肢收束，头身比例匀称",
+        "actual": "侧面视角下呈少女纤细身形，肩宽与身形比例匀称，腰肢收束"
+      }
+    ],
+    "diff": "",
+    "model": "doubao-seed-2-1-pro-260628",
+    "judge_version": "m0-judge-v1",
+    "missing_elements": [],
+    "usage": {
+      "prompt_tokens": 3213,
+      "completion_tokens": 6709,
+      "total_tokens": 9922
+    },
+    "payload_bytes": 7364093,
+    "reference_size": [
+      1440,
+      2560
+    ],
+    "image_size": [
+      1440,
+      2560
+    ],
+    "swapped": false,
+    "thinking": true
+  },
+  {
+    "pair_id": "S14",
+    "reference": "14_a.png",
+    "image": "14_b.png",
+    "score": 95,
+    "checks": [
+      {
+        "element": "发型",
+        "matched": true,
+        "expected": "棕色顺直齐下巴长度波波头，带有整齐的齐眉刘海",
+        "actual": "棕色顺直齐下巴长度波波头，带有整齐的齐眉刘海"
+      },
+      {
+        "element": "脸型",
+        "matched": true,
+        "expected": "面部轮廓流畅柔和，为圆润鹅蛋脸，下颌线条柔和、下巴圆润",
+        "actual": "面部轮廓流畅柔和，为圆润鹅蛋脸，下颌线条柔和、下巴圆润"
+      },
+      {
+        "element": "眉眼",
+        "matched": true,
+        "expected": "棕色平直眉，杏形眼，棕色瞳孔，眼距适中",
+        "actual": "棕色平直眉，杏形眼，棕色瞳孔，侧面视角下近侧眼睛完整露出，远侧眼睛部分露出"
+      },
+      {
+        "element": "肤色",
+        "matched": true,
+        "expected": "面部与颈部为均匀的暖调浅自然肤色",
+        "actual": "面部与颈部为均匀的暖调浅自然肤色"
+      },
+      {
+        "element": "体型",
+        "matched": true,
+        "expected": "肩宽适中，身形纤细匀称，比例协调",
+        "actual": "肩宽适中，身形纤细匀称，比例协调，呈侧身抱书姿态"
+      }
+    ],
+    "diff": "",
+    "model": "doubao-seed-2-1-pro-260628",
+    "judge_version": "m0-judge-v1",
+    "missing_elements": [],
+    "usage": {
+      "prompt_tokens": 3213,
+      "completion_tokens": 5160,
+      "total_tokens": 8373
+    },
+    "payload_bytes": 6514997,
+    "reference_size": [
+      1440,
+      2560
+    ],
+    "image_size": [
+      1440,
+      2560
+    ],
+    "swapped": false,
+    "thinking": true
+  },
+  {
+    "pair_id": "S15",
+    "reference": "15_a.png",
+    "image": "15_b.png",
+    "score": 95,
+    "checks": [
+      {
+        "element": "发型",
+        "matched": true,
+        "expected": "黑色头发，以红色发圈扎成高马尾，额前覆短碎刘海，马尾长度及肩下",
+        "actual": "黑色头发，以红色发圈扎成高马尾，额前覆短碎刘海，马尾位于头后"
+      },
+      {
+        "element": "脸型",
+        "matched": true,
+        "expected": "面部轮廓圆润饱满，为鹅蛋脸，苹果肌饱满，下巴圆润偏短",
+        "actual": "面部轮廓圆润饱满，苹果肌饱满，下巴圆润"
+      },
+      {
+        "element": "眉眼",
+        "matched": true,
+        "expected": "深棕色粗眉，眉形平缓带自然弧度；棕色杏形眼，眼距适中，睫毛纤长，鼻梁与双颊分布浅淡雀斑",
+        "actual": "深棕色粗眉，眉形带自然弧度；棕色杏形眼，睫毛纤长，鼻梁与脸颊分布浅淡雀斑"
+      },
+      {
+        "element": "肤色",
+        "matched": true,
+        "expected": "暖调白皙肤色，面部与颈部肤色均匀一致，布有浅淡雀斑",
+        "actual": "暖调白皙肤色，面部与颈部肤色一致，布有浅淡雀斑，侧光下存在自然明暗差"
+      },
+      {
+        "element": "体型",
+        "matched": true,
+        "expected": "少女身形，肩宽适中，身形匀称纤细",
+        "actual": "可见肩颈部位肩宽适中，身形比例匀称"
+      }
+    ],
+    "diff": "",
+    "model": "doubao-seed-2-1-pro-260628",
+    "judge_version": "m0-judge-v1",
+    "missing_elements": [],
+    "usage": {
+      "prompt_tokens": 3213,
+      "completion_tokens": 6549,
+      "total_tokens": 9762
+    },
+    "payload_bytes": 7574393,
+    "reference_size": [
+      1440,
+      2560
+    ],
+    "image_size": [
+      1440,
+      2560
+    ],
+    "swapped": false,
+    "thinking": true
+  }
+]

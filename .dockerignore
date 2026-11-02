@@ -1,0 +1,28 @@
+# 密钥绝不进镜像（7.6：只用 --env-file 在运行时传入）
+.env
+.env.bak*
+.env.*.bak
+
+# 产物与运行状态：运行时用 -v 挂载，不能烤进镜像
+assets/projects/
+assets/_archive/
+data/
+
+# 依赖缓存与字节码
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# 测试与评测数据：镜像运行不需要它们，但 `COPY . .` 会把 89MB 图片一起塞进构建上下文
+# （上下文越大，COPY 那步越容易在弱网/低内存下失败）。断言脚本同理，容器里不跑测试。
+tests/
+
+# 版本库与编辑器
+.git/
+.gitignore
+.vscode/
+.idea/
+
+# 构建文件自身与本地临时变体（网络受限时生成的换源版本，不该进镜像）
+Dockerfile*
+.dockerignore

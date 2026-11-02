@@ -1,0 +1,12 @@
+# 换行统一：仓库内存 LF，检出时按平台转换。
+# 不加这条，Windows 上提交的 .py 会是 CRLF，别人拉下来每个文件都显示"整文件改动"。
+* text=auto eol=lf
+
+# 二进制：不做换行转换，也不参与文本 diff
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.mp4 binary
+*.m4a binary
+*.mp3 binary
+*.db binary

@@ -1,0 +1,1229 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DramaConsistencyAgent · 操作台</title>
+<style>
+  :root{
+    --bg:#f6f7f9; --panel:#fff; --line:#e3e5e9; --ink:#1c1e21; --dim:#5f6368;
+    --accent:#2f6feb; --ok:#1a7f37; --warn:#b26a00; --bad:#b3261e; --idle:#8b8f96;
+    --amber:#854f0b; --amberbg:#fff8e6; --amberline:#f0d79a;
+    --r:10px;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);line-height:1.6;
+       font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Microsoft YaHei",sans-serif}
+  header{background:var(--panel);border-bottom:1px solid var(--line);padding:14px 22px;
+         position:sticky;top:0;z-index:10}
+  .brand{font-size:16px;font-weight:700;letter-spacing:.2px}
+  .brand small{font-weight:400;color:var(--dim);margin-left:8px;font-size:12px}
+  nav{display:flex;gap:6px;margin-top:12px;flex-wrap:wrap}
+  nav button{border:1px solid var(--line);background:#fff;color:var(--dim);
+             padding:6px 13px;border-radius:999px;font-size:13px;cursor:pointer}
+  nav button.on{background:var(--accent);border-color:var(--accent);color:#fff;font-weight:600}
+  nav button:disabled{opacity:.45;cursor:not-allowed}
+  nav button.wait{border-color:var(--amber);color:var(--amber);background:var(--amberbg)}
+  main{max-width:1080px;margin:0 auto;padding:22px}
+  section{display:none}
+  section.on{display:block}
+  .panel{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);
+         padding:18px 20px;margin-bottom:16px}
+  h2{font-size:15px;margin:0 0 12px}
+  h3{font-size:13px;margin:18px 0 8px;color:var(--dim);text-transform:uppercase;
+     letter-spacing:.06em;font-weight:600}
+  label{display:block;font-size:13px;color:var(--dim);margin:10px 0 4px}
+  input[type=text],input[type=number],input[type=file],textarea,select{
+    width:100%;padding:8px 10px;border:1px solid var(--line);border-radius:8px;
+    font-size:14px;font-family:inherit;background:#fff;color:var(--ink)}
+  textarea{min-height:76px;resize:vertical}
+  .row{display:flex;gap:14px;flex-wrap:wrap}
+  .row>div{flex:1;min-width:150px}
+  button.primary{background:var(--accent);color:#fff;border:none;padding:10px 20px;
+                 border-radius:8px;font-size:14px;font-weight:600;cursor:pointer}
+  button.primary:disabled{opacity:.5;cursor:not-allowed}
+  button.ghost{background:#fff;border:1px solid var(--line);padding:6px 12px;
+               border-radius:8px;font-size:13px;cursor:pointer;color:var(--ink)}
+  /* 停止 / 删除这类不可逆或会中断的动作统一用 danger，不和 primary 混用：
+     两个按钮长得一样时，"点错"的成本不是重来一次，而是钱和素材。 */
+  button.danger{background:#fff;border:1px solid #e8c4c4;padding:10px 20px;
+                border-radius:8px;font-size:14px;font-weight:600;cursor:pointer;color:#b3261e}
+  button.danger:disabled{opacity:.45;cursor:not-allowed}
+  button.mini{padding:4px 10px;font-size:12px;border-radius:6px}
+  .runctl{display:flex;align-items:center;gap:10px;margin:10px 0 4px;flex-wrap:wrap}
+  .check{display:flex;align-items:flex-start;gap:8px;margin:12px 0;font-size:13px;color:var(--dim)}
+  .check input{margin-top:4px}
+  .cards{display:flex;gap:10px;flex-wrap:wrap}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);
+        padding:12px 16px;min-width:118px}
+  .card .k{font-size:12px;color:var(--dim)}
+  .card .v{font-size:20px;font-weight:700}
+  table{width:100%;border-collapse:collapse;font-size:13px;background:#fff}
+  th,td{padding:8px 10px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+  th{background:#fafbfc;font-size:12px;color:var(--dim);font-weight:600}
+  tr:last-child td{border-bottom:none}
+  .pill{display:inline-block;padding:1px 8px;border-radius:999px;font-size:12px;font-weight:600}
+  .pill.pending{background:#eceef1;color:var(--idle)}
+  .pill.working{background:#e8f0fe;color:var(--accent)}
+  .pill.done{background:#e7f5eb;color:var(--ok)}
+  .pill.degraded{background:#fff4e5;color:var(--warn)}
+  .pill.failed{background:#fdecea;color:var(--bad)}
+  .pill.review{background:#fff0f6;color:#a0186b}
+  .diff{color:var(--dim);font-size:12px}
+  .bar{height:6px;background:#eceef1;border-radius:3px;overflow:hidden;margin-top:6px}
+  .bar>i{display:block;height:100%;background:var(--accent);transition:width .4s}
+  .warnbox{background:var(--amberbg);border:1px solid var(--amberline);border-radius:8px;
+           padding:12px 14px;font-size:13px;margin-bottom:14px}
+  .warnbox b{color:var(--amber)}
+  .infobox{background:#eef4ff;border:1px solid #c7dbff;border-radius:8px;
+           padding:12px 14px;font-size:13px;margin-bottom:14px}
+  .errbox{background:#fdecea;border:1px solid #f3c9c4;border-radius:8px;padding:12px 14px;
+          font-size:12px;white-space:pre-wrap;margin-bottom:14px;font-family:ui-monospace,monospace}
+  .imgs{display:flex;gap:8px;overflow-x:auto;padding-bottom:6px}
+  .imgs figure{margin:0;flex:0 0 auto;width:96px}
+  .imgs img{width:96px;height:170px;object-fit:cover;border-radius:6px;border:1px solid var(--line)}
+  .imgs figcaption{font-size:11px;color:var(--dim);text-align:center;margin-top:3px}
+  video{width:100%;max-width:340px;border-radius:8px;background:#000}
+  iframe{width:100%;height:640px;border:1px solid var(--line);border-radius:8px;background:#fff}
+  .muted{color:var(--dim);font-size:13px}
+  .mono{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:12px}
+
+  .choice{display:flex;gap:12px;margin:12px 0;flex-wrap:wrap}
+  .choice .opt{flex:1;min-width:230px;border:1px solid var(--line);border-radius:10px;
+               padding:12px 14px;cursor:pointer;background:#fff}
+  .choice .opt.on{border-color:var(--accent);background:#eef4ff}
+  .choice .opt b{font-size:14px}
+  .choice .opt div{font-size:12px;color:var(--dim);margin-top:3px}
+  .caredit{border:1px solid var(--line);border-radius:8px;padding:12px;margin-bottom:10px}
+  .caredit .hd{font-size:14px;font-weight:600;margin-bottom:6px}
+  .anchor-grid{display:flex;gap:14px;flex-wrap:wrap}
+  .anchor-card{width:236px;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:#fff}
+  .anchor-card img{width:100%;height:352px;object-fit:cover;display:block;background:#f1f2f4}
+  .anchor-card .ph{height:352px;display:flex;align-items:center;justify-content:center;
+                   color:var(--idle);font-size:13px;background:#f1f2f4}
+  .anchor-card .meta{padding:10px 12px}
+  .anchor-card .meta b{font-size:14px}
+  .anchor-card .btns{display:flex;gap:8px;margin-top:10px}
+  .anchor-card .btns button{flex:1;padding:7px 0;border-radius:8px;font-size:13px;
+                            cursor:pointer;border:1px solid var(--line);background:#fff;color:var(--ink)}
+  .anchor-card .btns .ok{background:var(--ok);border-color:var(--ok);color:#fff;font-weight:600}
+  .anchor-card .btns .ok.done{background:#e7f5eb;color:var(--ok);border-color:#bfe3c8}
+  .anchor-card .btns button:disabled{opacity:.45;cursor:not-allowed}
+
+  .modal{position:fixed;inset:0;background:rgba(20,22,26,.42);display:none;
+         align-items:center;justify-content:center;z-index:60;padding:20px}
+  .modal.on{display:flex}
+  .modal-box{background:#fff;border-radius:12px;padding:20px 22px;width:min(520px,94vw)}
+  /* 项目卡弹窗：要放逐镜表 + 时间线，必须更宽且自己能滚。
+     max-height 而不是 height：项目短的时候不要留一大片空白。 */
+  .modal-box.wide{width:min(880px,96vw);max-height:88vh;display:flex;flex-direction:column}
+  .modal-box.wide .body{overflow:auto;margin-top:10px;padding-right:4px}
+  .pmeta{display:flex;gap:16px;flex-wrap:wrap;font-size:12px;color:var(--dim);margin:2px 0 10px}
+  .pmeta b{color:var(--ink);font-weight:600}
+  .pline{font-size:13px;line-height:1.6;color:var(--ink);background:#fafbfc;
+         border:1px solid var(--line);border-radius:8px;padding:10px 12px}
+  .tl{font-size:12px;line-height:1.5}
+  .tl .ev{display:flex;gap:8px;padding:3px 0;border-bottom:1px dashed #eef0f3}
+  .tl .ev:last-child{border-bottom:none}
+  .tl .t{color:var(--dim);white-space:nowrap;font-variant-numeric:tabular-nums}
+  .tl .s{font-weight:600;white-space:nowrap}
+  .tl .r{color:var(--dim)}
+  .modal-box h3{font-size:15px;margin:0 0 6px;color:var(--ink);text-transform:none;letter-spacing:0}
+  .modal-box textarea{min-height:84px;margin-top:4px}
+  .modal-btns{display:flex;gap:10px;margin-top:14px;justify-content:flex-end}
+</style>
+</head>
+<body>
+<header>
+  <div class="brand">DramaConsistencyAgent<small>短剧一致性生产流水线 · 操作台</small></div>
+  <nav id="nav">
+    <button data-v="home" class="on">① 首页</button>
+    <button data-v="confirm" disabled>② 角色与分镜</button>
+    <button data-v="anchor" disabled>③ 定妆照</button>
+    <button data-v="progress" disabled>④ 生产进度</button>
+    <button data-v="console" disabled>⑤ 操作台</button>
+    <button data-v="report" disabled>⑥ 报告</button>
+  </nav>
+</header>
+
+<main>
+  <!-- ① 首页 -->
+  <section id="v-home" class="on">
+    <div class="panel">
+      <h2>新建一部短剧</h2>
+      <label>创意（一句到三句，越具体越好）</label>
+      <textarea id="creative">深夜加班回家的女人，在电梯里发现楼层按钮多按了一层。</textarea>
+      <div class="row">
+        <div><label>镜头数</label><input id="shots" type="number" value="6" min="1" max="12"></div>
+        <div><label>预算上限（元）</label><input id="budget" type="number" value="9.5" step="0.5" min="0.5"></div>
+        <div><label>模式</label>
+          <select id="mode">
+            <option value="real">真实（要花钱）</option>
+            <option value="mock">mock（零成本演练）</option>
+          </select>
+        </div>
+      </div>
+      <div class="check">
+        <input id="paid" type="checkbox">
+        <label for="paid" style="margin:0">我确认本轮会产生真实费用（不加此项，真实模式的每次调用都会被拦下）</label>
+      </div>
+      <button class="primary" id="btn-create">创建（下一步：选角色来源）</button>
+      <span class="muted" style="margin-left:12px" id="create-msg"></span>
+    </div>
+    <div class="panel">
+      <h2>已有项目</h2>
+      <table><thead><tr><th>项目</th><th>成片</th><th></th></tr></thead>
+      <tbody id="proj-list"><tr><td colspan="3" class="muted">加载中…</td></tr></tbody></table>    </div>
+  </section>
+
+  <!-- ② 停0：角色来源 / 停1：角色与分镜 -->
+  <section id="v-confirm">
+    <div id="stop0" style="display:none">
+      <div class="infobox"><b>停 0</b> · 先定角色从哪来，再让程序写剧本。这一步还没花钱。</div>
+      <div class="panel">
+        <h2>角色从哪来</h2>
+        <div class="choice">
+          <div class="opt" id="opt-image" onclick="pickSource('image')">
+            <b>我有参考图</b>
+            <div>上传人物图，生成的脸会照着这张来</div>
+          </div>
+          <div class="opt" id="opt-brief" onclick="pickSource('brief')">
+            <b>让程序生成</b>
+            <div>按创意自动编设定，出图后再由你挑</div>
+          </div>
+        </div>
+        <div id="upload-zone" style="display:none">
+          <label>上传人物参考图（可多张，按顺序对应角色 1、2…）</label>
+          <input type="file" id="ref-file" accept="image/png,image/jpeg,image/webp" multiple>
+          <div class="muted" id="ref-msg" style="margin-top:6px"></div>
+          <div class="muted" style="margin-top:6px">优先用插画 / 3D 风格参考图。真人照片可能触发平台内容审核。</div>
+        </div>
+        <button class="primary" id="btn-stop0-next" style="margin-top:18px">下一步：写剧本（约 ¥0.03）</button>
+        <span class="muted" id="stop0-msg" style="margin-left:12px"></span>
+      </div>
+    </div>
+
+    <div id="stop1" style="display:none">
+      <div class="warnbox"><b>停 1</b> · 剧本与角色卡已出。此刻<b>一镜未出</b>，改字不改钱。
+        改完点底部按钮才往下走。</div>
+      <div class="panel"><h2>角色卡（可直接改）</h2><div id="chars"></div>
+        <div class="muted">改外貌或服装会作废该角色已出的定妆照 —— 长相变了，旧图就不再是这个人。</div>
+      </div>
+      <div class="panel"><h2>分镜表（可直接改）</h2>
+        <table><thead><tr><th style="width:64px">镜</th><th style="width:150px">景别</th>
+          <th>动作</th><th style="width:150px">台词</th><th style="width:90px">情绪</th></tr></thead>
+        <tbody id="shot-table"></tbody></table>
+      </div>
+      <button class="primary" id="btn-save-confirm">保存并确认，生成定妆照（每角色 ¥0.20）</button>
+      <span class="muted" id="stop1-msg" style="margin-left:12px"></span>
+    </div>
+  </section>
+
+  <!-- ③ 停2：定妆照 -->
+  <section id="v-anchor">
+    <div class="warnbox"><b>停 2</b> · 这一步<b>只出了正脸</b>，侧背还没生成 —— 它们是拿这张脸当参考才画的。
+      不满意可以只重出一张（¥0.20），满意了才往下走。</div>
+    <div class="panel">
+      <h2>看脸 <span class="muted" id="anchor-msg"></span></h2>
+      <div id="anchor-cards" class="anchor-grid"></div>
+      <button class="primary" id="btn-anchor-next" style="margin-top:18px" disabled>
+        全部确认了，继续出侧背和生产</button>
+    </div>
+  </section>
+
+  <!-- ④ 生产进度 -->
+  <section id="v-progress">
+    <div id="next-hint"></div>
+    <div class="cards" id="stat-cards"></div>
+    <div class="panel" style="margin-top:14px">
+      <h2>镜头状态 <span class="muted" id="phase-label"></span></h2>
+      <div class="runctl">
+        <button class="primary" id="btn-continue" onclick="continueRun()">继续生成</button>
+        <button class="danger" id="btn-stop" onclick="stopRun()">停止</button>
+        <span class="muted" id="run-msg"></span>
+      </div>
+      <div class="bar"><i id="prog-bar" style="width:0"></i></div>
+      <table style="margin-top:12px"><thead><tr>
+        <th>镜号</th><th>状态</th><th>首帧分</th><th>末帧分</th><th>重试</th><th>成本</th><th>差异</th><th>重出</th>
+      </tr></thead><tbody id="shot-rows"></tbody></table>
+      <div class="muted" style="margin-top:10px;font-size:12px">
+        重出一镜 = 首帧 + 视频 + 两次判定，约 ¥1.20。填的「哪里不对」会拼进首帧提示词，
+        不是只留一条备注。
+      </div>
+    </div>
+    <div id="err-zone"></div>
+  </section>
+
+  <!-- ⑤ 操作台 -->
+  <section id="v-console">
+    <div class="panel">
+      <h2>待人工确认</h2>
+      <div class="muted" style="margin-bottom:10px">
+        末帧判定不达标的镜头会停在这里<b>不自动重跑</b>——视频重出一次约 ¥1.00，
+        而视频的差异描述转不成提示词增量，自动重试大概率原地复现。
+      </div>
+      <div id="review-zone" class="muted">没有待确认镜头。</div>
+    </div>
+    <div class="panel">
+      <h2>产物</h2>
+      <div id="artifact-zone" class="muted">暂无产物。</div>
+    </div>
+  </section>
+
+  <!-- ⑥ 报告 -->
+  <section id="v-report">
+    <div class="panel">
+      <h2>成片</h2>
+      <div id="video-zone" class="muted">还没有成片。</div>
+    </div>
+    <div class="panel">
+      <h2>一致性明细</h2>
+      <div id="report-zone" class="muted">报告未生成。</div>
+    </div>
+  </section>
+</main>
+
+<!-- 重出意见弹窗 -->
+<div class="modal" id="modal">
+  <div class="modal-box">
+    <h3 id="modal-title">重出正脸</h3>
+    <div class="muted" style="font-size:12px">这句话会拼进提示词，不会覆盖编剧写好的设定。</div>
+    <label>哪里不满意（可不填）</label>
+    <textarea id="fb-text" placeholder="例：脸再瘦一点，眼睛别这么凶，头发别挡脸"></textarea>
+    <div class="check">
+      <input type="checkbox" id="fb-card">
+      <label for="fb-card" style="margin:0">同时更新角色设定
+        <span class="muted">（会改角色卡，影响所有含该角色的镜头）</span></label>
+    </div>
+    <div class="check" id="paid-row">
+      <input type="checkbox" id="fb-paid">
+      <label for="fb-paid" style="margin:0">我确认本次重出会真实扣费
+        <span class="muted">（约 ¥0.20；勾了才能点重出）</span></label>
+    </div>
+    <div class="modal-btns">
+      <button class="ghost" id="btn-modal-cancel">取消</button>
+      <button class="primary" id="btn-modal-ok">重出 ¥0.20</button>
+    </div>
+  </div>
+</div>
+
+<!-- 项目卡：点「打开」先看这个项目干了啥，确认再进。
+     不进项目也能看到全部历史，是因为列表里 11 个项目 id 长得几乎一样，
+     进错一次的代价是"改错项目的剧本"或者"对着别的片子点继续花钱"。 -->
+<div class="modal" id="modal-project">
+  <div class="modal-box wide">
+    <h3 id="pj-title">项目</h3>
+    <div class="pmeta" id="pj-meta"></div>
+    <div class="body">
+      <div class="pline" id="pj-line" style="display:none"></div>
+      <div class="cards" id="pj-cards" style="margin:10px 0"></div>
+      <h2 style="margin-top:14px">逐镜流程</h2>
+      <table><thead><tr>
+        <th>镜号</th><th>状态</th><th>首帧</th><th>末帧</th><th>成本</th><th>重出理由</th>
+      </tr></thead><tbody id="pj-shots"></tbody></table>
+      <h2 style="margin-top:14px">状态变更时间线 <span class="muted" id="pj-tl-note"></span></h2>
+      <div class="tl" id="pj-timeline"></div>
+    </div>
+    <div class="modal-btns">
+      <button class="ghost" id="btn-pj-cancel">关掉</button>
+      <button class="ghost" id="btn-pj-here">在本页打开</button>
+      <button class="primary" id="btn-pj-open">新窗口打开</button>
+    </div>
+  </div>
+</div>
+
+<div class="modal" id="modal-shot">
+  <div class="modal-box">
+    <h3 id="shot-modal-title">重出这一镜</h3>
+    <div class="muted" style="font-size:12px">
+      这句话会作为「在上述设定基础上调整」拼进首帧提示词，再据此重出视频。
+    </div>
+    <label>哪里不对（写具体一点，会真的影响出图）</label>
+    <textarea id="shot-reason" placeholder="例：白布应该在奶龙手上，画面右侧多了一只人手；背景太亮，应是夜里"></textarea>
+    <div class="check" id="shot-paid-row">
+      <input type="checkbox" id="shot-paid">
+      <label for="shot-paid" style="margin:0">我确认本次重跑会真实扣费
+        <span class="muted">（首帧+视频+判定，约 ¥1.20；勾了才能点）</span></label>
+    </div>
+    <div class="modal-btns">
+      <button class="ghost" id="btn-shot-cancel">取消</button>
+      <button class="primary" id="btn-shot-ok" disabled>重出这一镜 ¥1.20</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// allowPaid 只服务「推进一段」那条路径（runStep）：它记录"本次会话已确认过花钱"。
+// **不能拿它当重出的授权来源**——它是内存态，刷新即丢，而重出（停 2）随时可能
+// 发生在刷新之后。重出的授权在弹窗里逐次勾选（fb-paid），见 postRegen。
+const S = {pid:null, view:'home', timer:null, status:null, script:null,
+           allowPaid:false, isMock:false, regenChar:null, rerunShot:null, source:'brief'};
+
+const $ = id => document.getElementById(id);
+const sleep = ms => new Promise(r => setTimeout(r, ms));
+const esc = s => String(s === null || s === undefined ? '' : s)
+  .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+
+const PILL = {pending:'pending', keyframing:'working', judging:'working',
+              videoing:'working', video_judging:'working', done:'done',
+              degraded:'degraded', failed:'failed', awaiting_review:'review'};
+const PILL_TXT = {pending:'等待', keyframing:'生成首帧', judging:'判定首帧',
+                  videoing:'出视频', video_judging:'末帧判定', done:'完成',
+                  degraded:'降级', failed:'失败', awaiting_review:'待确认'};
+
+const PHASE_VIEW = {created:'confirm', script_review:'confirm', anchor_review:'anchor',
+                    running:'progress', done:'report', failed:'progress',
+                    // stopped 不是落盘阶段，只是"用户叫停过"的展示态：片子没跑完，
+                    // 所以落在进度页、可以点继续，而不是跳到报告页。
+                    stopped:'progress',
+                    awaiting_review:'console'};
+
+async function api(path, opts){
+  const r = await fetch(path, opts);
+  const body = await r.json().catch(() => ({}));
+  if(!r.ok){
+    // 把状态码带在 error 上：调用方要能区分「400 参数错」和「402 这一笔还没授权」，
+    // 后者可以自动兜一次确认，前者只能去改参数。只看文字分不出来。
+    const e = new Error(body.detail || ('HTTP ' + r.status));
+    e.status = r.status;
+    throw e;
+  }
+  return body;
+}
+
+function refreshNav(phase){
+  const f = {
+    confirm: true,
+    anchor: ['anchor_review','running','done'].includes(phase),
+    progress: true,
+    console: true,
+    report: phase === 'done',
+  };
+  document.querySelectorAll('#nav button').forEach(b => {
+    b.disabled = !(b.dataset.v === 'home' || f[b.dataset.v]);
+    b.classList.toggle('wait',
+      (b.dataset.v === 'confirm' && ['created','script_review'].includes(phase)) ||
+      (b.dataset.v === 'anchor' && phase === 'anchor_review'));
+  });
+}
+
+function setView(v){
+  S.view = v;
+  document.querySelectorAll('section').forEach(s => s.classList.toggle('on', s.id === 'v-'+v));
+  document.querySelectorAll('#nav button').forEach(b => b.classList.toggle('on', b.dataset.v === v));
+  if(v === 'confirm') loadConfirmView();
+  if(v === 'anchor') loadAnchorView();
+  if(v === 'progress'){ loadStatus(); startPolling(); } else stopPolling();
+  if(v === 'console' || v === 'report'){ loadStatus(); loadArtifacts(); }
+}
+
+function startPolling(){ stopPolling(); S.timer = setInterval(loadStatus, 2000); }
+function stopPolling(){ if(S.timer){ clearInterval(S.timer); S.timer = null; } }
+
+async function jumpToPhase(phase){
+  refreshNav(phase);
+  setView(PHASE_VIEW[phase] || 'progress');
+}
+
+// ---------------- ① 首页
+$('btn-create').onclick = async () => {
+  const mock = $('mode').value === 'mock';
+  const allowPaid = $('paid').checked;
+  if(!mock && !allowPaid){
+    $('create-msg').textContent = '真实模式需要先勾选付费确认。';
+    return;
+  }
+  $('btn-create').disabled = true;
+  $('create-msg').textContent = '创建中…';
+  try{
+    const c = await api('/api/projects', {
+      method:'POST', headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({creative:$('creative').value, shots:+$('shots').value,
+                            budget:+$('budget').value, mock, role_source:'brief'})
+    });
+    S.pid = c.project_id;
+    S.allowPaid = allowPaid;
+    S.isMock = mock;
+    S.source = 'brief';
+    clearStatus();
+    $('err-zone').innerHTML = '';
+    $('create-msg').textContent = '已创建 ' + S.pid;
+    refreshNav('created');
+    setView('confirm');            // 停 0：先选角色来源，不自动开跑
+  }catch(e){
+    $('create-msg').textContent = '失败：' + e.message;
+  }finally{
+    $('btn-create').disabled = false;
+  }
+};
+
+async function loadProjects(){
+  try{
+    const d = await api('/api/projects');
+    const tb = $('proj-list');
+    tb.innerHTML = d.projects.length ? d.projects.map(p => `<tr>
+      <td class="mono">${esc(p.project_id)}</td>
+      <td>${p.has_final ? '<span class="pill done">有</span>' : '<span class="pill pending">无</span>'}</td>
+      <td style="white-space:nowrap">
+        <button class="ghost" onclick="openProjectCard('${p.project_id}')">打开</button>
+        <button class="danger mini" style="margin-left:6px"
+                onclick="deleteProject('${p.project_id}')">删除</button>
+      </td>
+    </tr>`).join('') : '<tr><td colspan="3" class="muted">还没有项目。</td></tr>';
+  }catch(e){ $('proj-list').innerHTML = '<tr><td colspan="3" class="muted">读取失败：'+esc(e.message)+'</td></tr>'; }
+}
+
+// 删项目：**只接受手打项目名确认**，不是点一下 confirm 就算。
+// 这个按钮删的是首帧、视频、成片和全部账目，赔不回来；而列表里的按钮间距只有 6px，
+// 误点一次就没了。要多打 12 个字符换一次不可撤销操作，划得来。
+async function deleteProject(pid){
+  const typed = prompt(
+    `删除「${pid}」会永久删掉它的全部产物和账目（首帧、视频、成片、花费记录），不可恢复。\n` +
+    `确认请输入项目名：`, '');
+  if(typed === null) return;
+  if(typed.trim() !== pid){ alert('输入不一致，已取消。'); return; }
+  try{
+    const r = await api(`/api/projects/${pid}`, {method:'DELETE'});
+    // 删的正好是当前打开的项目时，必须把页面上残留的状态清掉，
+    // 否则进度页会继续显示那个已经不存在的项目的数字，看起来像"删了但还在"。
+    if(S.pid === pid){ S.pid = null; clearStatus(); setView('home'); }
+    await loadProjects();
+    alert(`已删除 ${pid}（${r.files} 个文件 / ${(r.bytes/1048576).toFixed(1)}MB）`);
+  }catch(e){ alert('删除失败：' + e.message); }
+}
+
+// ---------------- 项目卡（点「打开」先看它干了啥）
+const PJCARD = {pid:null};
+
+function fmtTs(ts){
+  if(!ts) return '—';
+  // 同一天只显示时分秒，跨天才带日期：时间线里绝大多数是当天的事，
+  // 每条都写一遍 2026-11-02 会把这一栏撑宽，反而看不出先后。
+  const d = String(ts), day = d.slice(0,10);
+  const today = new Date().toLocaleDateString('sv-SE');   // sv-SE 就是 YYYY-MM-DD
+  return day === today ? d.slice(11,19) : d.slice(5,16).replace('T',' ');
+}
+
+async function openProjectCard(pid){
+  PJCARD.pid = pid;
+  $('pj-title').textContent = pid;
+  $('pj-meta').innerHTML = '<span>读取中…</span>';
+  $('pj-line').style.display = 'none';
+  $('pj-cards').innerHTML = '';
+  $('pj-shots').innerHTML = '';
+  $('pj-timeline').innerHTML = '';
+  $('pj-tl-note').textContent = '';
+  $('btn-pj-open').disabled = false;
+  $('modal-project').classList.add('on');
+  try{
+    // 两个接口并发：timeline 给"这个项目干了啥"，status 给当前逐镜分数与花费。
+    // status 失败不该让整张卡打不开——timeline 自己就够回答"干过什么"了。
+    const [tl, st] = await Promise.all([
+      api(`/api/projects/${pid}/timeline`),
+      api(`/api/projects/${pid}/status`).catch(() => null),
+    ]);
+    renderProjectCard(tl, st);
+  }catch(e){
+    $('pj-meta').innerHTML = `<span style="color:#b3261e">读取失败：${esc(e.message)}</span>`;
+  }
+}
+
+function renderProjectCard(tl, st){
+  $('pj-title').textContent = tl.title || tl.project_id;
+  const created = tl.created_at ? String(tl.created_at).slice(0,16).replace('T',' ') : '—';
+  $('pj-meta').innerHTML = [
+    `<span>阶段 <b>${esc(tl.phase_label || tl.phase)}</b></span>`,
+    `<span>项目 <b class="mono">${esc(tl.project_id)}</b></span>`,
+    `<span>创建 <b>${esc(created)}</b></span>`,
+    `<span>模式 <b>${tl.mock ? 'mock（零成本）' : '真实'}</b></span>`,
+    `<span>角色来源 <b>${tl.role_source === 'image' ? `参考图 ${tl.ref_count} 张` : '程序生成'}</b></span>`,
+    tl.artifacts && tl.artifacts.reruns ? `<span>重出 <b>${tl.artifacts.reruns} 次</b></span>` : '',
+  ].filter(Boolean).join('');
+
+  const line = tl.logline || tl.creative;
+  if(line){ $('pj-line').textContent = line; $('pj-line').style.display = ''; }
+
+  const c = (st && st.counts) || {};
+  const cost = (st && st.cost) || null;
+  $('pj-cards').innerHTML = [
+    ['镜头', tl.shots || (st && st.total) || 0],
+    ['完成', (c.done ?? 0) + (c.degraded ?? 0)],
+    ['待确认', (st && (st.awaiting_review||[]).length) || 0],
+    ['实扣', cost ? '¥' + cost.spent.toFixed(2) : '—'],
+    ['上限', cost ? '¥' + cost.cap.toFixed(2) : '—'],
+  ].map(([k,v]) => `<div class="card"><div class="k">${k}</div><div class="v">${v}</div></div>`).join('');
+
+  const shots = (st && st.shots) || [];
+  $('pj-shots').innerHTML = shots.length ? shots.map(s => `<tr>
+      <td class="mono">${esc(s.shot_id)}</td>
+      <td><span class="pill ${PILL[s.status] || 'pending'}">${PILL_TXT[s.status] || esc(s.status)}</span></td>
+      <td>${s.score ?? '—'}</td>
+      <td>${s.video_score ?? '—'}</td>
+      <td>¥${(s.cost||0).toFixed(2)}</td>
+      <td class="diff">${esc(s.rerun_reason || '')}</td>
+    </tr>`).join('')
+    : '<tr><td colspan="6" class="muted">还没有镜头记录（这个项目还没开跑）。</td></tr>';
+
+  const evs = tl.events || [];
+  $('pj-tl-note').textContent = evs.length ? `（最近 ${evs.length} 条状态迁移）` : '';
+  $('pj-timeline').innerHTML = evs.length ? evs.map(e => `<div class="ev">
+      <span class="t">${esc(fmtTs(e.ts))}</span>
+      <span class="s">${esc(e.shot_id || '项目')}</span>
+      <span>${esc(e.from || '—')} → <b>${esc(e.to)}</b></span>
+      <span class="r">${esc((e.reason||'').slice(0,80))}</span>
+    </div>`).join('')
+    : '<div class="muted">还没有状态变更记录。</div>';
+}
+
+function closeProjectCard(){ $('modal-project').classList.remove('on'); }
+$('btn-pj-cancel').onclick = closeProjectCard;
+$('modal-project').onclick = e => { if(e.target.id === 'modal-project') closeProjectCard(); };
+$('btn-pj-here').onclick = async () => {
+  const pid = PJCARD.pid;
+  closeProjectCard();
+  if(pid) await openProject(pid);
+};
+$('btn-pj-open').onclick = () => {
+  const pid = PJCARD.pid;
+  if(!pid) return;
+  // 新窗口/新标签打开。**必须先让 URL 带上项目 id**，否则新标签页打开的是空白首页——
+  // 这是个单页应用，页面状态全在内存里，不写进 URL 就没法被"另一个标签页"打开。
+  // 同一个 `?p=` 也让刷新不再是"回到首页、刚才改的都没了"。
+  window.open(`${location.pathname}?p=${encodeURIComponent(pid)}`, '_blank');
+  closeProjectCard();
+};
+
+// 把当前项目写进地址栏（不进历史记录：点十次项目不该在"后退"里堆十条）。
+function setUrlProject(pid){
+  const u = new URL(location.href);
+  if(pid) u.searchParams.set('p', pid); else u.searchParams.delete('p');
+  history.replaceState(null, '', u.pathname + (u.search || ''));
+}
+
+async function openProject(pid){
+  S.pid = pid;
+  S.status = null;
+  S.allowPaid = false;
+  // 先写 URL 再请求：写晚了会在"新标签页刚打开、请求还没回来"的那一刻
+  // 留下一个没有 ?p= 的地址，刷新一次就回首页了。
+  setUrlProject(pid);
+  // 切项目立刻清屏，不等请求回来：一旦网络慢或接口报错，
+  // 旧项目的数据就会冒充新项目，而这两部片的观感差别巨大。
+  clearStatus();
+  $('err-zone').innerHTML = '';
+  try{
+    const d = await loadStatus();
+    await jumpToPhase(d.phase);
+  }catch(e){
+    // 404 = 项目已被删掉，而地址栏还留着 ?p=。这时不该把人丢在一个空白报错页上：
+    // 清掉参数、回列表、说一句为什么，比"读取失败"有用。
+    if(e.status === 404){
+      setUrlProject(null);
+      S.pid = null;
+      clearStatus();
+      setView('home');
+      refreshNav('created');
+      $('create-msg').textContent = `项目 ${pid} 不存在（可能已被删除）`;
+      return;
+    }
+    refreshNav('running');
+    setView('progress');
+    $('err-zone').innerHTML = `<div class="errbox">${esc(e.message)}</div>`;
+  }
+}
+
+// ---------------- ② 停0 / 停1
+async function loadConfirmView(){
+  if(!S.pid) return;
+  let d;
+  try{ d = await loadStatus(); }
+  catch(e){ $('stop0').style.display='block'; $('stop1').style.display='none'; return; }
+  if(d.phase === 'created'){
+    $('stop0').style.display = 'block';
+    $('stop1').style.display = 'none';
+    pickSource(S.source === 'image' ? 'image' : 'brief');
+  }else{
+    $('stop0').style.display = 'none';
+    $('stop1').style.display = 'block';
+    await loadScriptEditor();
+  }
+}
+
+function pickSource(src){
+  S.source = src;
+  $('opt-image').classList.toggle('on', src === 'image');
+  $('opt-brief').classList.toggle('on', src === 'brief');
+  $('upload-zone').style.display = src === 'image' ? 'block' : 'none';
+}
+
+$('ref-file').onchange = async (e) => {
+  const files = [...e.target.files];
+  if(!files.length) return;
+  $('ref-msg').className = 'muted';
+  $('ref-msg').textContent = '上传中…';
+  const warns = [];
+  try{
+    for(const f of files){
+      const b64 = await new Promise((res, rej) => {
+        const fr = new FileReader();
+        fr.onload = () => res(fr.result);
+        fr.onerror = rej;
+        fr.readAsDataURL(f);
+      });
+      const r = await api(`/api/projects/${S.pid}/refs`, {
+        method:'POST', headers:{'Content-Type':'application/json'},
+        body: JSON.stringify({filename:f.name, data_base64:b64})
+      });
+      // 尺寸不合格必须当场说。等到出图时才报，是平台回的一条带签名 URL 的 400，
+      // 看不出是哪张图、也看不出原图多大，而那时已经花掉剧本那 ¥0.03 了。
+      if(r && r.too_small && r.warning) warns.push(f.name + '：' + r.warning);
+    }
+    S.source = 'image';
+    if(warns.length){
+      $('ref-msg').className = 'warnbox';
+      $('ref-msg').innerHTML = '<b>参考图偏小，能用但可能不太像</b><br>' +
+        warns.map(w => `·${w}`).join('<br>') +
+        '<br><span class="muted">换成更大的原图，人物一致性才有保证。</span>';
+    }else{
+      $('ref-msg').className = 'muted';
+      $('ref-msg').textContent = `已上传 ${files.length} 张参考图`;
+    }
+  }catch(err){
+    $('ref-msg').className = 'muted';
+    $('ref-msg').textContent = '上传失败：' + err.message;
+  }
+};
+
+$('btn-stop0-next').onclick = async () => {
+  $('btn-stop0-next').disabled = true;
+  // 有参考图时会多跑一次反推（每张 3~8 秒），文案要说出来——
+  // 否则人以为卡住了，去点第二次。
+  $('stop0-msg').textContent = S.source === 'image'
+    ? '正在读参考图并写剧本（每张图约 5 秒）…' : '正在写剧本…';
+  try{
+    await runStep(true);
+    $('stop0-msg').textContent = '';
+  }catch(e){
+    $('stop0-msg').textContent = '失败：' + e.message;
+  }finally{
+    $('btn-stop0-next').disabled = false;
+  }
+};
+
+async function loadScriptEditor(){
+  let d;
+  try{ d = await api(`/api/projects/${S.pid}/script`); }
+  catch(e){
+    $('chars').innerHTML = '<div class="muted">剧本还没生成：'+esc(e.message)+'</div>';
+    $('shot-table').innerHTML = '';
+    return;
+  }
+  S.script = d;
+  // 停 1 的第一次"人看卡"。参考图反推出来的卡必须在这个环节被核对：
+  // 它决定后面每一镜的脸，而模型对"年龄/性别/服装"的自评经常只有 0.5 档。
+  const inferred = (d.characters||[]).filter(c => c.source === 'inferred');
+  const hint = inferred.length
+    ? `<div class="warnbox">角色卡已按上传的参考图反推（<span class="mono">source=inferred</span>）。
+        标黄的字段是模型没把握的，<b>出图前请核对</b>——它决定后面每一镜的脸。</div>` : '';
+  $('chars').innerHTML = hint + ((d.characters||[]).map((c,i) => {
+    const low = c.low_confidence_fields || [];
+    const need = f => low.includes(f) ? ' style="border-color:#e6a23c;background:#fffbf0"' : '';
+    const tip = f => low.includes(f)
+      ? ' <span style="color:#c47f00;font-size:12px">⚠ 图里不清晰，请核对</span>' : '';
+    const badge = c.source === 'inferred'
+      ? ' <span class="muted" style="font-size:11px;border:1px solid #ddd;border-radius:6px;padding:1px 6px">来自参考图</span>'
+      : '';
+    return `
+    <div class="caredit">
+      <div class="hd">${esc(c.name)}${badge}
+        <span class="muted mono" style="font-weight:400">${esc(c.char_id)}</span>
+      </div>
+      <div class="row">
+        <div>
+          <label>性别${tip('gender')}</label>
+          <input type="text" data-i="${i}" data-k="gender" value="${esc(c.gender)}"${need('gender')}>
+        </div>
+        <div>
+          <label>年龄段${tip('age_range')}</label>
+          <input type="text" data-i="${i}" data-k="age_range" value="${esc(c.age_range)}"${need('age_range')}>
+        </div>
+      </div>
+      <label>外貌（发型 / 脸型 / 眉眼 / 肤色 / 体型）${tip('appearance')}</label>
+      <textarea data-i="${i}" data-k="appearance"${need('appearance')}>${esc(c.appearance)}</textarea>
+      <label>服装${tip('wardrobe')}</label>
+      <input type="text" data-i="${i}" data-k="wardrobe" value="${esc(c.wardrobe)}"${need('wardrobe')}>
+    </div>`;
+  }).join('') || '<div class="muted">无角色</div>');
+
+  $('shot-table').innerHTML = (d.shots||[]).map((s,i) => `<tr>
+      <td class="mono">${esc(s.shot_id)}</td>
+      <td><input type="text" data-s="${i}" data-k="camera" value="${esc(s.camera)}"></td>
+      <td><textarea data-s="${i}" data-k="action" style="min-height:54px">${esc(s.action)}</textarea></td>
+      <td><input type="text" data-s="${i}" data-k="dialogue" value="${esc(s.dialogue||'')}"
+                 placeholder="无台词留空"></td>
+      <td><input type="text" data-s="${i}" data-k="emotion" value="${esc(s.emotion||'')}"></td>
+    </tr>`).join('');
+}
+
+function collectScript(){
+  const d = JSON.parse(JSON.stringify(S.script));
+  document.querySelectorAll('#chars [data-k]').forEach(el => {
+    d.characters[+el.dataset.i][el.dataset.k] = el.value;
+  });
+  document.querySelectorAll('#shot-table [data-k]').forEach(el => {
+    const s = d.shots[+el.dataset.s];
+    const v = el.value.trim();
+    if(el.dataset.k === 'dialogue') s.dialogue = v || null;
+    else s[el.dataset.k] = v;
+  });
+  return d;
+}
+
+$('btn-save-confirm').onclick = async () => {
+  $('btn-save-confirm').disabled = true;
+  $('stop1-msg').textContent = '保存中…';
+  try{
+    const r = await api(`/api/projects/${S.pid}/script`, {
+      method:'PUT', headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({script: collectScript()})
+    });
+    if((r.invalidated||[]).length){
+      $('stop1-msg').textContent = `已作废 ${r.invalidated.length} 张旧定妆照，即将重出…`;
+    }else{
+      $('stop1-msg').textContent = '已保存，正在出定妆照…';
+    }
+    // 取消授权时 runStep 返回 null。不判断的后果：界面写「正在出定妆照」，
+    // 其实一张都没出，人以为在跑、等着看结果。
+    const ok = await runStep(true);
+    $('stop1-msg').textContent = ok ? '' : '已保存，但没有授权出图（未扣费）';
+  }catch(e){
+    $('stop1-msg').textContent = '失败：' + e.message;
+  }finally{
+    $('btn-save-confirm').disabled = false;
+  }
+};
+
+// ---------------- ③ 停2 定妆照
+async function loadAnchorView(){
+  if(!S.pid) return;
+  try{
+    const d = await loadStatus();
+    renderAnchor(d);
+    // 重出要 20 秒左右。没有这一句，刷新过的页面就停在一张一动不动的旧图上，
+    // 人只能自己按 F5 才知道换好没有。只在"确实在重出"时才续，不会自转。
+    if(d.regenerating && S.view === 'anchor'){
+      setTimeout(() => { if(S.view === 'anchor') loadAnchorView(); }, 1500);
+    }
+  }catch(e){ $('anchor-msg').textContent = e.message; }
+}
+
+function renderAnchor(d){
+  const chars = d.characters || [];
+  // 正在换脸的是哪一张。后端给的是 char_id，不是布尔——两张卡只该禁一张。
+  const busyId = d.regenerating ? d.regenerating_char : null;
+  $('anchor-cards').innerHTML = chars.map(c => {
+    const busy = c.char_id === busyId;
+    return `
+    <div class="anchor-card">
+      ${c.has_front
+        ? `<img src="${c.front_url}?t=${c.front_attempts}" alt="${esc(c.name)} 的正脸">`
+        : `<div class="ph">还没出图</div>`}
+      <div class="meta">
+        <b>${esc(c.name)}</b> <span class="muted mono">${esc(c.char_id)}</span>
+        <div class="muted" style="font-size:12px;margin-top:2px">第 ${c.front_attempts} 次${
+          busy ? ' · 重出中…' : ''}</div>
+        <div class="muted" style="font-size:12px;margin-top:2px;line-height:1.4">
+          ${esc((c.appearance||'').slice(0, 30))}…</div>
+        <div class="btns">
+          <button class="ok ${c.front_status === 'confirmed' ? 'done' : ''}"
+                  onclick="confirmAnchor('${c.char_id}')"
+                  ${c.front_status === 'confirmed' || busy ? 'disabled' : ''}>
+            ${c.front_status === 'confirmed' ? '已确认' : '这张可以'}</button>
+          <button onclick="openRegen('${c.char_id}','${esc(c.name)}')" ${busy ? 'disabled' : ''}>
+            ${busy ? '重出中…' : '重出'}</button>
+        </div>
+      </div>
+    </div>`;
+  }).join('') || '<div class="muted">还没有角色卡。</div>';
+
+  const all = chars.length > 0 && chars.every(c => c.front_status === 'confirmed');
+  $('btn-anchor-next').disabled = !all || !!busyId;
+  $('anchor-msg').textContent = busyId ? '重出中…（约 20 秒）'
+    : all ? '全部确认，可以往下走'
+          : '每张都点「这张可以」才解锁下一步';
+}
+
+async function confirmAnchor(cid){
+  try{
+    const r = await api(`/api/projects/${S.pid}/anchor/confirm`, {
+      method:'POST', headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({char_id: cid, note: ''})
+    });
+    const d = await loadStatus();
+    renderAnchor(d);
+    if(r.all_confirmed) $('anchor-msg').textContent = '全部确认，可以往下走';
+  }catch(e){ alert('确认失败：' + e.message); }
+}
+
+function openRegen(cid, name){
+  S.regenChar = cid;
+  $('modal-title').textContent = `重出 ${name} 的正脸`;
+  $('fb-text').value = '';
+  $('fb-card').checked = false;
+  $('fb-paid').checked = false;
+  // mock 不花钱，就不摆一个"确认扣费"的空头支票。
+  $('paid-row').style.display = S.isMock ? 'none' : '';
+  syncRegenBtn();
+  $('modal').classList.add('on');
+}
+// 授权以**这一次弹窗里的勾选**为准，不再读全局 S.allowPaid。
+// 原来读的是内存变量，页面刷新就归 false，而界面上根本没有能改它的开关——
+// 结果是"真实模式下重出必定 402，且用户无从下手"（2026-11-02 的现场故障）。
+function syncRegenBtn(){
+  const needPaid = !S.isMock;
+  const b = $('btn-modal-ok');
+  b.disabled = needPaid && !$('fb-paid').checked;
+  b.textContent = S.isMock ? '重出（mock 不扣费）' : '重出 ¥0.20';
+}
+$('fb-paid').onchange = syncRegenBtn;
+function closeModal(){ $('modal').classList.remove('on'); }
+$('btn-modal-cancel').onclick = closeModal;
+$('modal').onclick = e => { if(e.target.id === 'modal') closeModal(); };
+
+// 重出一镜的弹窗（与正脸重出分开：授权口径和价格都不同）
+function closeShotModal(){ $('modal-shot').classList.remove('on'); }
+$('btn-shot-cancel').onclick = closeShotModal;
+$('modal-shot').onclick = e => { if(e.target.id === 'modal-shot') closeShotModal(); };
+$('shot-paid').onchange = () => {
+  $('btn-shot-ok').disabled = !S.isMock && !$('shot-paid').checked;
+};
+$('btn-shot-ok').onclick = () => doShotRerun(S.isMock ? false : $('shot-paid').checked);
+
+function postRegen(cid, fb, upd, paid){
+  return api(`/api/projects/${S.pid}/anchor/regenerate`, {
+    method:'POST', headers:{'Content-Type':'application/json'},
+    body: JSON.stringify({char_id: cid, feedback: fb, update_card: upd,
+                          allow_paid: paid})
+  });
+}
+
+$('btn-modal-ok').onclick = async () => {
+  const fb = $('fb-text').value.trim();
+  const upd = $('fb-card').checked;
+  const cid = S.regenChar;
+  let paid = S.isMock || $('fb-paid').checked;
+  if(!paid){ return; }          // 按钮本已禁用，双保险
+  const before = ((S.status && S.status.characters) || [])
+    .filter(x => x.char_id === cid).map(x => x.front_attempts)[0] || 0;
+  const errBefore = (S.status && S.status.error) || '';
+  closeModal();
+  $('anchor-msg').textContent = '重出中…';
+  try{
+    try{
+      await postRegen(cid, fb, upd, paid);
+    }catch(e){
+      // 402 = 后端没拿到授权。兜一层确认再重发一次：
+      // 否则前端状态一旦丢失（刷新、开新标签），这里就变成死循环，人只能干瞪眼。
+      if(e.status === 402 && !paid){
+        if(!window.confirm('重出会真实出图，约 ¥0.20。确认继续？')){
+          $('anchor-msg').textContent = '已取消，没有扣费'; return;
+        }
+        paid = true;
+        await postRegen(cid, fb, upd, true);
+      }else throw e;
+    }
+    for(let i = 0; i < 60; i++){
+      await sleep(1500);
+      const d = await loadStatus();
+      const now = ((d.characters||[]).filter(x => x.char_id === cid)
+                   .map(x => x.front_attempts)[0]) || 0;
+      // 只认**这一次**新产生的错误。后端已改成开跑先清 error，
+      // 这里再比一次，双保险：历史失败的旧账不该算到这一轮头上。
+      if(d.error && d.error !== errBefore){
+        $('anchor-msg').textContent = d.error; alert(d.error); return;
+      }
+      if(now > before){
+        // 走 loadAnchorView 而不是直接 renderAnchor：后者不知道"还在重出"这件事，
+        // 渲染完就断了，界面会停在"重出中…"直到人手动刷新。
+        $('anchor-msg').textContent = '';
+        await loadAnchorView();
+        return;
+      }
+    }
+    $('anchor-msg').textContent = '重出还没回来，刷新看看';
+  }catch(e){
+    $('anchor-msg').textContent = '';
+    alert('重出失败：' + e.message);
+  }
+};
+
+$('btn-anchor-next').onclick = async () => {
+  $('btn-anchor-next').disabled = true;
+  try{
+    const ok = await runStep(true);
+    if(!ok) $('anchor-msg').textContent = '已取消，没有扣费';
+  }
+  catch(e){ alert('继续失败：' + e.message); }
+  finally{ $('btn-anchor-next').disabled = false; }
+};
+
+// ---------------- 推进一段 + 轮询到停
+async function runStep(confirm){
+  if(!S.isMock && !S.allowPaid){
+    if(!window.confirm('这一步会调用真实模型并产生费用，继续？')) return null;
+    S.allowPaid = true;
+  }
+  await api(`/api/projects/${S.pid}/run`, {
+    method:'POST', headers:{'Content-Type':'application/json'},
+    body: JSON.stringify({allow_paid: S.allowPaid, confirm: !!confirm})
+  });
+  for(let i = 0; i < 900; i++){
+    await sleep(1200);
+    const d = await loadStatus();
+    if(d.phase !== 'running'){
+      await jumpToPhase(d.phase);
+      return d;
+    }
+  }
+  throw new Error('等了 18 分钟还没结束，去「生产进度」看看');
+}
+
+// ---------------- ④ 生产进度
+async function loadStatus(){
+  if(!S.pid) return {};
+  try{
+    const d = await api(`/api/projects/${S.pid}/status`);
+    S.status = d;
+    S.isMock = !!d.mock;
+    const c = d.counts || {};
+    $('stat-cards').innerHTML = [
+      ['总镜数', d.total ?? '—'],
+      ['完成', c.done ?? 0],
+      ['降级', c.degraded ?? 0],
+      ['失败', c.failed ?? 0],
+      ['待确认', (d.awaiting_review||[]).length],
+      ['实扣', '¥' + (d.cost?.spent ?? 0).toFixed(2)],
+      ['上限', '¥' + (d.cost?.cap ?? 0).toFixed(2)],
+      ['耗时', d.elapsed ? d.elapsed + 's' : '—'],
+    ].map(([k,v]) => `<div class="card"><div class="k">${k}</div><div class="v">${v}</div></div>`).join('');
+
+    $('phase-label').textContent = d.phase_label ||
+      ({running:'运行中…', done:'已结束', failed:'中断', awaiting_review:'等待人工确认'})[d.phase] || '';
+    const doneN = (c.done||0) + (c.degraded||0) + (c.failed||0);
+    $('prog-bar').style.width = Math.round(100 * doneN / Math.max(1, d.total||1)) + '%';
+
+    $('shot-rows').innerHTML = (d.shots||[]).map(s => {
+      const cls = PILL[s.status] || 'pending';
+      // 只有"已经出过视频"的镜头才给重出：还没跑的镜头走「继续」，
+      // 两条路径都能让同一镜开跑的话，账目上分不清是谁花的钱。
+      const canRerun = ['done','degraded','failed','awaiting_review'].includes(s.status)
+                       && !d.alive && !d.rerunning;
+      const busyThis = d.rerunning === s.shot_id;
+      return `<tr>
+        <td class="mono">${esc(s.shot_id)}</td>
+        <td><span class="pill ${cls}">${PILL_TXT[s.status] || esc(s.status)}</span></td>
+        <td>${s.score ?? '—'}</td>
+        <td>${s.video_score ?? '—'}</td>
+        <td>${s.tech_attempts} / ${s.quality_attempts}</td>
+        <td>¥${(s.cost||0).toFixed(2)}</td>
+        <td class="diff">${esc((s.diff||'').slice(0,60))}
+          ${s.rerun_reason ? `<div class="muted" style="font-size:11px;margin-top:4px">
+            上次重出理由：${esc(s.rerun_reason)}</div>` : ''}</td>
+        <td>${busyThis
+          ? '<span class="muted" style="font-size:12px">重出中…</span>'
+          : `<button class="ghost mini" onclick="openShotRerun('${s.shot_id}')"
+                ${canRerun ? '' : 'disabled'}>重跑</button>`}</td>
+      </tr>`;
+    }).join('');
+
+    // 「继续 / 停止」的可用性**由后端的真实状态决定**，不是由页面记的变量：
+    // 服务重启后磁盘 phase 仍是 running，但进程里一个线程都没有，
+    // 只看 phase 的话会显示"生产中"，人点停止得到 409，还以为按钮坏了。
+    const alive = !!d.alive, stopped = d.phase === 'stopped';
+    const canContinue = !alive && ['running','stopped','failed'].includes(d.phase) && (d.shots||[]).length;
+    $('btn-continue').style.display = canContinue ? '' : 'none';
+    $('btn-continue').disabled = false;
+    $('btn-stop').style.display = alive ? '' : 'none';
+    $('btn-stop').disabled = !!d.stopping;
+    $('btn-stop').textContent = d.stopping ? '正在停止…' : '停止';
+    if(d.stopping) $('run-msg').textContent = '已收到停止：当前这一镜会跑完（约 1–2 分钟），之后不再开新镜';
+    else if(stopped) $('run-msg').textContent = '已停止。点「继续生成」从下一镜接着跑，已完成的不重做';
+    else if(d.phase === 'running' && !alive)
+      $('run-msg').textContent = '没有进程在跑（服务重启过或上次被杀），点「继续生成」接着跑';
+    else if(d.phase === 'running')
+      $('run-msg').textContent = '生产中：每完成一镜，这张表会自己更新';
+    else $('run-msg').textContent = '';
+
+    $('err-zone').innerHTML = d.error ? `<div class="errbox">${esc(d.error)}</div>` : '';
+
+    // 停在等你的位置时，进度页顶部给一条明确指引
+    const hint = {
+      created: '还没开始：去 ② 选角色来源',
+      script_review: '停在「等你确认角色与分镜」：去 ② 改完点确认',
+      anchor_review: '停在「等你确认定妆照」：去 ③ 看脸',
+      awaiting_review: '有镜头待裁决：去 ⑤ 操作台',
+      stopped: '已按你的要求停下：已完成的不重做，点「继续生成」从下一镜接着跑',
+    }[d.phase];
+    $('next-hint').innerHTML = hint && S.view === 'progress'
+      ? `<div class="infobox">${hint}</div>` : '';
+
+    refreshNav(d.phase);
+    if(d.phase === 'running') startPolling(); else stopPolling();
+    renderReview(d);
+    return d;
+  }catch(e){
+    // **先清空再报错。** 不清空的话，上一部片的数字会留在屏幕上，
+    // 看起来像"新项目跑完了"。
+    clearStatus();
+    $('err-zone').innerHTML = `<div class="errbox">${esc(e.message)}</div>`;
+    throw e;
+  }
+}
+
+// ---------------- 继续 / 停止 / 重跑单镜
+async function continueRun(){
+  const b = $('btn-continue');
+  b.disabled = true;
+  $('run-msg').textContent = '正在继续…';
+  try{
+    const d = await runStep(true);
+    if(!d){ $('run-msg').textContent = '已取消，没有扣费'; b.disabled = false; }
+  }catch(e){ alert('继续失败：' + e.message); b.disabled = false; }
+}
+
+async function stopRun(){
+  const b = $('btn-stop');
+  b.disabled = true; b.textContent = '正在停止…';
+  try{
+    const r = await api(`/api/projects/${S.pid}/stop`, {method:'POST'});
+    $('run-msg').textContent = r.detail || '已请求停止';
+  }catch(e){
+    alert('停止失败：' + e.message);
+    b.disabled = false; b.textContent = '停止';
+  }
+}
+
+function openShotRerun(sid){
+  S.rerunShot = sid;
+  $('shot-modal-title').textContent = `重出 ${sid}`;
+  $('shot-reason').value = '';
+  $('shot-paid').checked = false;
+  // mock 模式下后端本来就放行，摆一个"我确认要扣钱"的勾只会让人以为哪里不对
+  $('shot-paid-row').style.display = S.isMock ? 'none' : '';
+  $('btn-shot-ok').textContent = S.isMock ? '重出这一镜（mock 不扣费）' : '重出这一镜 ¥1.20';
+  $('btn-shot-ok').disabled = !S.isMock;
+  $('modal-shot').classList.add('on');
+}
+
+async function doShotRerun(allowPaid){
+  const sid = S.rerunShot;
+  const reason = $('shot-reason').value.trim();
+  $('modal-shot').classList.remove('on');
+  $('run-msg').textContent = `正在重出 ${sid}…（首帧 + 视频，约 2 分钟）`;
+  try{
+    await api(`/api/projects/${S.pid}/shots/${sid}/rerun`, {
+      method:'POST', headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({reason, allow_paid: allowPaid})
+    });
+  }catch(e){
+    // 402 = 这一笔还没授权（页面刷过、或勾选框被重置）。补一次确认再重发，
+    // 而不是把人堵在一句"需要授权"上——那句话他已经在弹窗里看过一遍了。
+    if(e.status === 402){
+      if(window.confirm(e.message + '\n\n确认并重发？')) return doShotRerun(true);
+      return;
+    }
+    alert('重跑失败：' + e.message);
+    return;
+  }
+  for(let i = 0; i < 240; i++){
+    await sleep(1500);
+    const d = await loadStatus();
+    if(d.error){ alert(d.error); return; }
+    if(!d.rerunning){ $('run-msg').textContent = `${sid} 已重出`; return; }
+  }
+  $('run-msg').textContent = '重跑还没回来，刷新看看';
+}
+
+function clearStatus(){
+  $('stat-cards').innerHTML = '';
+  $('shot-rows').innerHTML = '';
+  $('prog-bar').style.width = '0%';
+  $('phase-label').textContent = '';
+  $('next-hint').innerHTML = '';
+  $('review-zone').innerHTML = '<div class="muted">没有待确认镜头。</div>';
+  $('anchor-cards').innerHTML = '';
+  $('anchor-msg').textContent = '';
+  // 切项目时这几项也要落回初始态：上一个项目的「继续」按钮留在屏幕上，
+  // 点下去是对着新项目跑，而这个按钮出现在"新项目还没开始"的位置上极易误点。
+  $('btn-continue').style.display = 'none';
+  $('btn-stop').style.display = 'none';
+  $('run-msg').textContent = '';
+}
+
+function renderReview(d){
+  const list = d.awaiting_review || [];
+  if(!list.length){ $('review-zone').innerHTML = '<div class="muted">没有待确认镜头。</div>'; return; }
+  $('review-zone').innerHTML = list.map(r => `
+    <div style="border:1px solid var(--line);border-radius:8px;padding:12px;margin-bottom:10px">
+      <b>${esc(r.shot_id)}</b> <span class="pill review">末帧 ${r.video_score ?? '—'} 分</span>
+      <div style="margin-top:10px;display:flex;gap:8px;flex-wrap:wrap">
+        <button class="ghost" onclick="decide('${r.shot_id}','accept')">放行</button>
+        <button class="ghost" onclick="decide('${r.shot_id}','degrade')">放行并标红</button>
+        <button class="ghost" onclick="decide('${r.shot_id}','reject')">驳回重出</button>
+      </div>
+    </div>`).join('');
+}
+
+async function decide(shotId, decision){
+  const note = prompt('裁决理由（会写进报告，可留空）：', '') ?? '';
+  try{
+    await api(`/api/projects/${S.pid}/decide`, {
+      method:'POST', headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({shot_id:shotId, decision, note})
+    });
+    await loadStatus();
+  }catch(e){ alert('裁决失败：' + e.message); }
+}
+
+// ---------------- ⑤⑥ 产物与报告
+async function loadArtifacts(){
+  if(!S.pid) return;
+  try{
+    const a = await api(`/api/projects/${S.pid}/artifacts`);
+    const imgStrip = list => list.length
+      ? `<div class="imgs">${list.map(x => `<figure><img src="${x.url}"><figcaption>${esc(x.name)}</figcaption></figure>`).join('')}</div>`
+      : '<div class="muted">无</div>';
+    $('artifact-zone').innerHTML = `
+      <h3>定妆照</h3>${imgStrip(a.anchors)}
+      <h3>首帧</h3>${imgStrip(a.keyframes)}
+      <h3>单条视频</h3>${a.shots.length
+        ? a.shots.map(s => `<a class="ghost" style="display:inline-block;margin:0 6px 6px 0;text-decoration:none" href="${s.url}" target="_blank">${esc(s.name)}.mp4</a>`).join('')
+        : '<div class="muted">无</div>'}`;
+    $('video-zone').innerHTML = a.final
+      ? `<video controls src="${a.final.url}"></video>
+         <div class="muted" style="margin-top:8px">${a.final.size_mb} MB ·
+         <a href="${a.final.url}" download>下载</a></div>`
+      : '<div class="muted">还没有成片（可能有镜头待在操作台裁决）。</div>';
+    $('report-zone').innerHTML = a.report
+      ? `<iframe src="${a.report}"></iframe>`
+      : '<div class="muted">报告未生成。</div>';
+  }catch(e){
+    $('artifact-zone').innerHTML = `<div class="muted">${esc(e.message)}</div>`;
+  }
+}
+
+document.querySelectorAll('#nav button').forEach(b => b.onclick = () => {
+  // 回首页要把 ?p= 抹掉：留着的话刷新一次又被拽回刚才那个项目，
+  // 而人点"首页"的意思就是"我不要再待在那个项目里"。
+  if(b.dataset.v === 'home') setUrlProject(null);
+  setView(b.dataset.v);
+});
+
+// 带 ?p= 打开就直接进那个项目（新标签页、收藏、分享链接都靠它）。
+// 列表照样加载：人在项目里点「① 首页」时不该看到一个"加载中…"。
+loadProjects();
+const bootPid = new URLSearchParams(location.search).get('p');
+if(bootPid) openProject(bootPid).catch(() => {});
+</script>
+</body>
+</html>
